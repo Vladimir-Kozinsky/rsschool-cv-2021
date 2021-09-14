@@ -248,6 +248,11 @@ a:hover {
     border-bottom: #ccc solid 1px;
 }
 
+.video {
+    display: flex;
+    justify-content: center;
+}
+
 footer {
     min-height: 50px;
     padding: 15px;
