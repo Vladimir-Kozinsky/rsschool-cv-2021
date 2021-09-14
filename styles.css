@@ -1,0 +1,273 @@
+/*Обнуление*/
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:focus, :active {
+    outline: none;
+}
+
+a:focus, a:active {
+    outline: none;
+}
+
+/* nav, footer, header, aside {
+    display: block;
+} */
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    /* line-height: 1; */
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+    font-family: inherit;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+a, a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* ul li {
+    list-style: none;
+} */
+
+img {
+    vertical-align: top;
+}
+
+/* h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+} */
+
+/*--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------*/
+
+body {
+    font-family: Georgia;
+    color: #444;
+    font-size: 18px;
+    background: #dadada;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Georgia;
+    color: #444;
+    font-size: 18px;
+    background: #f5f5f5;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.dropMenu img {
+    width: 30px;
+}
+
+header {
+    top: 0;
+    background: #f5f5f5;
+    border-bottom: #ccc solid 1px;
+}
+
+.dropItems {
+    background-color: white;
+    width: 150px;
+    border: 1px solid #444;
+    display: none;
+    position: absolute;
+    transition: display 550ms;
+}
+
+.dropMenu {
+    margin-left: 40px;
+    margin-top: 10px;
+    position: absolute;
+    display: none;
+}
+
+.dropMenu img:hover {
+    cursor: pointer;
+}
+
+.dropMenu:hover .dropItems {
+    display: block;
+}
+
+.dropItems ul {
+    list-style: none;
+    margin-left: 10px;
+}
+
+.navPanel {
+    display: flex;
+    justify-content: space-evenly;
+    min-height: 45px;
+    /* border: blue 1px solid; */
+    flex-wrap: wrap;
+}
+
+.navPanel a {
+    margin: 10px;
+    width: 100px;
+    /* border: red solid 1px; */
+}
+
+h1 {
+    margin: 10px;
+    font-size: 38px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+h4 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+.row__container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.avatarContainer {
+    flex: 0 0 270px;
+    padding: 15px;
+}
+
+.avatarContainer img {
+    max-width: 100%;
+}
+
+.contactsContainer {
+    flex: 1 1 auto;
+    padding: 15px;
+}
+
+.contactsContainer h3 {
+    margin-top: 40px;
+}
+
+h1, h2, h3, h4 {
+    color: #333;
+}
+
+p {
+    padding-left: 20px;
+    line-height: 25px;
+}
+
+.experienceItem img {
+    width: 40px;
+}
+
+.progects {
+    list-style: none;
+}
+
+.projectItem {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.projectImgContainer {
+    margin-right: 10px;
+}
+
+li {
+    margin: 7px;
+}
+
+ul {
+    margin-left: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: #444;
+}
+
+a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.item {
+    padding: 15px;
+    border-bottom: #ccc solid 1px;
+}
+
+.video {
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    min-height: 50px;
+    padding: 15px;
+    text-align: center;
+}
+
+@media screen and (max-width: 1024px) {
+    .dropMenu {
+        display: block;
+    }
+    .navPanel {
+        display: none;
+        /* visibility: hidden */
+    }
+    h1 {
+        margin-top: 50px;
+    }
+}
