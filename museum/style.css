@@ -45,7 +45,7 @@ section {
     display: flex;
     justify-content: space-between;
     width: 199px;
-    border: #FFFFFF 1px solid;
+    /* border: #FFFFFF 1px solid; */
 }
 
 .logo {
@@ -62,7 +62,7 @@ section {
 
 .menu {
     width: 720px;
-    border: #FFFFFF 1px solid;
+    /* border: #FFFFFF 1px solid; */
 }
 
 .menu ul {
@@ -86,7 +86,161 @@ section {
 .welcome-container {
     width: 1440px;
     height: 840px;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 10%, rgba(255, 255, 255, 0.8) 30%), ;
     background-repeat: no-repeat;
-    background-position: top;
+    /* background-image: url("assets/img/welcome.jpg"); */
+    background: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) calc(50% - 250px), transparent calc(40% + 100px)), url("assets/img/welcome.jpg") no-repeat top right;
+    background-size: auto 100%;
+}
+
+h1 {
+    color: #FFFFFF;
+    font-family: Forum;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 80px;
+    line-height: 90px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.section-title {
+    margin-top: 150px;
+}
+
+.par p {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 33px;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+}
+
+.par {
+    margin-top: 25px;
+}
+
+.title-button {
+    margin-top: 75px;
+    width: 360px;
+    height: 75px;
+    background-color: #710707;
+    border-radius: 10px;
+    border-color: brown;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.title-button a {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 26px;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+}
+
+/* VIRTUAL TOUR SECTION */
+
+.border-bottom h1 {
+    color: #9D8665;
+    padding-bottom: 25px;
+    border-bottom: #710707 3px solid;
+    font-family: Forum;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 80px;
+    line-height: 90px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #9D8665;
+}
+
+.tours-container {
+    margin-top: 75px;
+    height: 923px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 60px;
+    row-gap: 75px;
+    max-width: 1440px;
+}
+
+.tour-item {
+    text-decoration: none;
+    display: block;
+    width: 440px;
+    height: 424px;
+}
+
+.tour-img {
+    width: 440px;
+    height: 285px;
+    border: rgb(117, 117, 187) 1px solid;
+}
+
+.tours-container h3 {
+    margin-top: 25px;
+    font-family: Forum;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 35px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.tours-container hr {
+    margin-top: 10px;
+    left: 0px;
+    top: 355px;
+    border-radius: 0px;
+}
+
+.tours-container p {
+    margin-top: 10px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 22px;
+    line-height: 26px;
+    color: #000000;
+}
+
+/* PICTURE EXPLORE SECTION */
+
+.dark-section .border-bottom h1 {
+    color: white;
+    border-bottom: #710707 3px solid;
+}
+
+.dark-section p {
+    margin-top: 25px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 38px;
+    color: #FFFFFF;
+}
+
+.par-container {
+    margin-top: 75px;
+    max-width: 660px;
+}
+
+.explore-container {
+    display: flex;
+}
+
+.text-block {
+    width: 48%;
+}
+
+.image-block {
+    width: 48%;
 }
