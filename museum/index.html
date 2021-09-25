@@ -109,7 +109,7 @@
             </div>
         </section>
 
-        <section class="section dark-section explore-section" id="video">
+        <section class="section dark-section explore-section" id="">
             <div class="container explore-container border-bottom">
                 <div class="text-block">
                     <h1>Picture explore</h1>
@@ -123,17 +123,80 @@
                     </div>
                 </div>
                 <div class="image-block">
-                    <img src="./assets/img/explore-img2.jpg" alt="">
-                    <img src="./assets/img/explore-img1.jpg" alt="">
+                    <div class="picture">
+                        <img src="./assets/img/explore-img2.jpg" alt="">
+                        <img class="line-control" src="./assets/img/explore-slider.png" alt="">
+                    </div>
                 </div>
-
-
-
             </div>
         </section>
 
-        <section class="section" id="gallery">
-            <div class="container"></div>
+        <section class="section " id="video">
+            <div class="container video-container border-bottom">
+                <div class="video-colums">
+                    <h1>Video journey</h1>
+                    <div class="video-par-block">
+                        <p>Enter and visit one of the most famous museums
+                            in the world and enjoy masterpieces such as Mona Lisa
+                            or Hammurabi's Code
+                        </p>
+                    </div>
+                </div>
+                <div class="video-block">
+                    <video src="assets/video/video.mp4" poster="assets/video/poster.jpg">
+
+                    </video>
+
+                </div>
+
+                <div class="control-panel">
+                    <img src="./assets/img/playIcon.png" alt="">
+                    <input type="range" value="40" min="0" max="100" step="1" class="progress">
+                    <img src="./assets/img/volumeIcon.png" alt="">
+                    <input type="range" value="40" min="0" max="100" step="1" class="volume-progress">
+                    <img src="./assets/img/frameIcon.png" alt="">
+                </div>
+                <div class="video-slider">
+                    <div class="video-slider-item">
+                        <img src="./assets/img/slider-item1.jpg" alt="">
+                        <div class="video-slider-itemButton">
+                            <img src="./assets/img/youtubePlayIcon.png" alt="image">
+                        </div>
+                    </div>
+                    <div class="video-slider-item">
+                        <img src="./assets/img/slider-item2.jpg" alt="">
+                        <div class="video-slider-itemButton">
+                            <img src="./assets/img/youtubePlayIcon.png" alt="image">
+                        </div>
+                    </div>
+                    <div class="video-slider-item">
+                        <img src="./assets/img/slider-item3.jpg" alt="">
+                        <div class="video-slider-itemButton">
+                            <img src="./assets/img/youtubePlayIcon.png" alt="image">
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <a href=""><img src="./assets/img/sliderButtonLeft.png" alt=""></a>
+                    <label for="id1"><img src="./assets/img/radio-checked.png" alt="">
+                        <input value="1" type="radio" id="id1" checked>
+                    </label>
+                    <label for="id2"><img src="./assets/img/radio.png" alt="">
+                        <input value="2" type="radio" id="id2">
+                    </label>
+                    <label for="id3"><img src="./assets/img/radio.png" alt="">
+                        <input value="3" type="radio" id="id3">
+                    </label>
+                    <label for="id4"><img src="./assets/img/radio.png" alt="">
+                        <input value="4" type="radio" id="id4">
+                    </label>
+                    <label for="id5"><img src="./assets/img/radio.png" alt="">
+                        <input value="5" type="radio" id="id5">
+                    </label>
+                    <a href=""><img src="./assets/img/sliderButtonRight.png" alt=""></a>
+                </div>
+            </div>
+
         </section>
         <section class="section dark-section" id="tickets">
             <div class="container"></div>
@@ -149,5 +212,18 @@
         <div class="container-footer"></div>
     </footer>
 </body>
+<script>
+    const progress = document.querySelector('.progress');
+    const volumeProgress = document.querySelector('.volume-progress');
+
+    progress.addEventListener('input', function () {
+        const value = this.value;
+        this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #C4C4C4 ${value}%, white 100%)`
+    })
+    volumeProgress.addEventListener('input', function () {
+        const value = this.value;
+        this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #C4C4C4 ${value}%, white 100%)`
+    })
+</script>
 
 </html>
