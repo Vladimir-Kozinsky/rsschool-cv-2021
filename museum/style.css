@@ -401,3 +401,30 @@ video {
     width: 12px;
     height: 12px;
 }
+
+/* GALLERY SECTION */
+
+.gallery {
+    margin-top: 75px;
+    display: flex;
+    column-gap: 36px;
+    row-gap: 40px;
+}
+
+.gallery-column-item {
+    margin-top: 24px;
+}
+
+.gallery-column1 div:first-child {
+    margin-top: 50px;
+}
+
+.gallery-column3 div:first-child {
+    margin-top: 50px;
+}
+
+.gallery-column2 div:first-child {
+    margin-top: 0px;
+}
+
+/* TICKETS SECTION */
