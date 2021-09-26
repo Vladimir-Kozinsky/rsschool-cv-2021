@@ -3,12 +3,13 @@
     padding: 0;
 }
 
-html {
-    scroll-behavior: smooth;
+body {
+    margin: 0 auto;
+    max-width: 1920px;
 }
 
-section {
-    border: 1px solid red;
+html {
+    scroll-behavior: smooth;
 }
 
 .section {
@@ -27,7 +28,6 @@ section {
 .container {
     margin: 0 auto;
     max-width: 1440px;
-    border: #FFFFFF 1px solid;
 }
 
 .header {
@@ -409,6 +409,8 @@ video {
     display: flex;
     column-gap: 36px;
     row-gap: 40px;
+    max-height: 1965px;
+    overflow: hidden;
 }
 
 .gallery-column-item {
@@ -428,3 +430,259 @@ video {
 }
 
 /* TICKETS SECTION */
+
+.tickets-block {
+    margin-top: 75px;
+    display: flex;
+    column-gap: 60px;
+}
+
+.tickets-block h3 {
+    margin-bottom: 10px;
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 33px;
+}
+
+.tickets-image-block {
+    max-width: 720px;
+}
+
+.tickets-choose-block {
+    display: flex;
+    column-gap: 215px;
+}
+
+.tickets-type-block {
+    width: 270px;
+}
+
+.tickets-amount-block {
+    width: 175px;
+    text-align: right;
+}
+
+.radio-block {
+    margin-top: 50px;
+}
+
+.input-container {
+    display: block;
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 25px;
+    align-items: center;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: Roboto;
+    font-size: 22px;
+    line-height: 26px;
+}
+
+/* Hide the browser's default radio button */
+
+.input-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+
+.checkmark {
+    position: absolute;
+    top: 2.5px;
+    left: 0;
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    border: #000000 2px solid;
+}
+
+/* On mouse-over, add a grey background color */
+
+.input-container:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+
+.input-container input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+
+.input-container .checkmark:after {
+    top: 5px;
+    left: 5px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: black;
+}
+
+.calc {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 150px;
+    height: 50px;
+    border: black 3px solid;
+    margin-left: auto;
+}
+
+.calc-block {
+    margin-top: 15px;
+}
+
+.calc-block p {
+    font-family: Roboto;
+    font-weight: 300;
+    font-size: 22px;
+}
+
+.calc button {
+    width: 18px;
+    height: 38px;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 32px;
+    background-color: white;
+    border: white;
+}
+
+.calc button:hover {
+    cursor: pointer;
+}
+
+.number {
+    all: unset;
+    width: 3em;
+    text-align: center;
+}
+
+.number-container {
+    font-size: 28px;
+    width: 40px;
+    overflow: hidden;
+}
+
+.number-container input {
+    position: relative;
+    left: -13px;
+}
+
+.total-container {
+    margin-top: 50px;
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.buy-button {
+    margin-top: 52px;
+    width: 175px;
+    height: 50px;
+    background-color: #000000;
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-weight: 300;
+    font-size: 22px;
+    border-radius: 3px;
+    border: #000000;
+}
+
+.bottom-background {
+    margin-top: 75px;
+    background-image: url("./assets/img/b-back.jpg");
+    height: 400px;
+}
+
+/* CONTACTS SECTION */
+
+.contacts-block {
+    margin-top: 75px;
+    display: flex;
+    column-gap: 198px;
+}
+
+.contacts-block h3 {
+    margin-bottom: 50px;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 28px;
+}
+
+.contacts-block li {
+    margin-bottom: 25px;
+    font-family: Roboto;
+    font-weight: 300;
+    font-size: 22px;
+    list-style-type: none;
+}
+
+/* FOOTER */
+
+.container-footer {
+    border-bottom: solid 3px #666666;
+    height: 265px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-menu {
+    width: 363px;
+    height: 128px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-menu li {
+    margin-bottom: 25px;
+    border: oldlace 1px solid;
+    
+}
+.footer {
+    margin: 0 auto;
+    height: 392px;
+    background-color: black;
+    max-width: 1920px;
+    flex-wrap: wrap;
+}
+
+.links {
+    width: 340px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.developerInfo {
+    height: 124px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.developerInfo a {
+    font-family: Roboto;
+    font-weight: 200;
+    font-size: 22px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
