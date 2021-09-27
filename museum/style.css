@@ -84,8 +84,8 @@ html {
 /* WELCOME SECTION */
 
 .welcome-container {
-    width: 1440px;
-    height: 840px;
+    min-height: 810px;
+    padding-top: 150px;
     background-repeat: no-repeat;
     /* background-image: url("assets/img/welcome.jpg"); */
     background: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) calc(50% - 250px), transparent calc(40% + 100px)), url("assets/img/welcome.jpg") no-repeat top right;
@@ -101,10 +101,6 @@ h1 {
     line-height: 90px;
     letter-spacing: 5px;
     text-transform: uppercase;
-}
-
-.section-title {
-    margin-top: 150px;
 }
 
 .par p {
@@ -130,7 +126,11 @@ h1 {
     border-color: brown;
     display: flex;
     align-items: center;
-    text-align: center;
+    justify-content: center;
+}
+
+.title-button:hover {
+    cursor: pointer;
 }
 
 .title-button a {
@@ -179,6 +179,12 @@ h1 {
     width: 440px;
     height: 285px;
     border: rgb(117, 117, 187) 1px solid;
+}
+
+.tours-container hr {
+    width: 300px;
+    color: #710707;
+    size: 2px;
 }
 
 .tours-container h3 {
@@ -607,10 +613,56 @@ video {
     border: #000000;
 }
 
+.buy-button:hover {
+    cursor: pointer;
+}
+
 .bottom-background {
     margin-top: 75px;
     background-image: url("./assets/img/b-back.jpg");
     height: 400px;
+}
+
+/* BOOKING TICKETS BLOCK */
+
+.booking-container {
+    margin: 75px auto;
+    max-width: 1440px;
+    border: rgb(0, 0, 0) 1px solid;
+    display: flex;
+    column-gap: 40px;
+}
+
+.tickets-info {
+    border: rgb(0, 0, 0) 1px solid;
+}
+
+.border-bottom h1 {
+    color: #9D8665;
+}
+
+.tickets-info p {
+    color: #710707;
+    font-size: 18px;
+}
+
+.overview {
+    border: rgb(0, 0, 0) 1px solid;
+}
+
+.logo {
+    width: 85px;
+    height: 41px;
+    background-image: url("./assets/img/logo.png");
+}
+
+.tickets-info input {
+    width: 400px;
+    height: 45px;
+    font-size: 18px;
+    background: url("./assets/img/tickets-booking/nameIcon.png") no-repeat;
+    background-position: 15px 15px;
+    padding-left: 45px;
 }
 
 /* CONTACTS SECTION */
@@ -640,42 +692,58 @@ video {
 
 .container-footer {
     border-bottom: solid 3px #666666;
-    height: 265px;
+    min-height: 265px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.container-footer .logo-container {
+    margin-top: 86px;
 }
 
 .footer-menu {
     width: 363px;
-    height: 128px;
+    min-height: 128px;
+    margin-top: 86px;
     display: flex;
     justify-content: space-between;
 }
 
 .footer-menu li {
     margin-bottom: 25px;
-    border: oldlace 1px solid;
-    
 }
+
+.footer-menu a {
+    font-family: Roboto;
+    font-size: 22px;
+    font-weight: 200;
+    line-height: 26px;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
 .footer {
     margin: 0 auto;
-    height: 392px;
+    min-height: 392px;
     background-color: black;
     max-width: 1920px;
     flex-wrap: wrap;
 }
 
 .links {
+    margin-top: 162px;
     width: 340px;
     display: flex;
     justify-content: space-between;
 }
 
 .developerInfo {
-    height: 124px;
+    min-height: 124px;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
 }
 
