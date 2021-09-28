@@ -624,7 +624,7 @@ video {
 }
 
 /* BOOKING TICKETS BLOCK */
-
+/* 
 .booking-container {
     margin: 75px auto;
     max-width: 1440px;
@@ -663,7 +663,7 @@ video {
     background: url("./assets/img/tickets-booking/nameIcon.png") no-repeat;
     background-position: 15px 15px;
     padding-left: 45px;
-}
+} */
 
 /* CONTACTS SECTION */
 
