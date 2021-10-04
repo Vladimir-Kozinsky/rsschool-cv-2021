@@ -684,7 +684,6 @@ video {
 
 .payment-container {
     padding: 25px 30px 26px 30px;
-    
     background-color: rgb(248, 229, 248);
     width: 530px;
 }
@@ -721,20 +720,47 @@ video {
     justify-content: space-between;
 }
 
-.calculating-block {
+.calculating-block {}
 
-}
 .ticket-time-block-item {
     display: flex;
     column-gap: 15px;
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-family: Roboto;
+    font-weight: 300;
 }
+
 .ticket-time-block {
     background-color: thistle;
 }
+
 .purchase-item {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 22px;
+}
 
+.purchase-item-name {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+}
+
+.purchase-item-name-quantity {
+    width: 32px;
+    height: 20px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 18px;
 }
 
 .logo {
@@ -840,13 +866,62 @@ video {
     border: 1px solid #030303;
 }
 
-/* .calc-button-container {
-    background-color: black;
-    width: 25px;
+.total-block {
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 2px #740C11 solid;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    border: 1px red solid;
+.purchase-items-block {
+    margin-top: 10px;
+}
 
-} */
+.purchase-item:first-child {
+    margin-bottom: 5px;
+}
+
+.credit-card {
+    width: 360px;
+    height: 211px;
+    background-color: #BCBCBC;
+    margin-top: 10px;
+    border-radius: 3px;
+    position: relative;
+    z-index: 2;
+}
+
+.credit-card-backside {
+    width: 360px;
+    height: 211px;
+    background-color: #939393;
+    position: relative;
+    top: 30px;
+    float: right;
+}
+
+.book-button {
+    width: 220px;
+    height: 45px;
+    background-color: #710707;
+    margin-top: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.book-button a {
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 22px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
 
 /* CONTACTS SECTION */
 
@@ -869,6 +944,19 @@ video {
     font-weight: 300;
     font-size: 22px;
     list-style-type: none;
+}
+
+.overview h3 {
+    font-family: Roboto;
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.overview h4 {
+    border: none;
+    margin: 0px 0px 10px 0px;
+    padding: 0px;
 }
 
 /* FOOTER */
