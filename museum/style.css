@@ -5,7 +5,6 @@
 
 body {
     margin: 0 auto;
-    max-width: 1920px;
 }
 
 html {
@@ -76,9 +75,23 @@ html {
 
 .menu a {
     text-decoration: none;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 200;
     font-size: 22px;
+    line-height: 26px;
+    letter-spacing: 2px;
     color: #FFFFFF;
-    font-family: 'Roboto', sans-serif;
+}
+
+.menu a:hover {
+    color: #9D8665;
+    transition-duration: 0.3s;
+}
+
+.menu a:active {
+    color: #7E6C51;
+    transition-duration: 0.1s;
 }
 
 /* WELCOME SECTION */
@@ -90,6 +103,22 @@ html {
     /* background-image: url("assets/img/welcome.jpg"); */
     background: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) calc(50% - 250px), transparent calc(40% + 100px)), url("assets/img/welcome.jpg") no-repeat top right;
     background-size: auto 100%;
+}
+
+h2 {
+    color: #FFFFFF;
+    font-family: Forum;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 80px;
+    line-height: 90px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+h2:hover {
+    color: #9D8665;
+    transition-duration: 0.3s;
 }
 
 h1 {
@@ -131,6 +160,8 @@ h1 {
 
 .title-button:hover {
     cursor: pointer;
+    background-color: #9D8665;
+    transition-duration: 0.3s;
 }
 
 .title-button a {
@@ -145,7 +176,7 @@ h1 {
 
 /* VIRTUAL TOUR SECTION */
 
-.border-bottom h1 {
+.border-bottom h2 {
     color: #9D8665;
     padding-bottom: 25px;
     border-bottom: #710707 3px solid;
@@ -218,9 +249,14 @@ h1 {
 
 /* PICTURE EXPLORE SECTION */
 
-.dark-section .border-bottom h1 {
-    color: white;
+.dark-section .border-bottom h2 {
+    color: #FFFFFF;
     border-bottom: #710707 3px solid;
+}
+
+.dark-section .border-bottom h2:hover {
+    color: #9D8665;
+    transition-duration: 0.3s;
 }
 
 .dark-section p {
@@ -278,7 +314,7 @@ h1 {
     flex-wrap: wrap;
 }
 
-.video-container h1 {
+.video-container h2 {
     border: none;
     width: 45%;
 }
@@ -301,9 +337,13 @@ video {
     z-index: 0;
 }
 
-.mainPlayIcon {
-    position: absolute;
-    border: black solid 1px;
+.control-panel img:hover {
+    opacity: 80%;
+    cursor: pointer;
+}
+
+.control-panel input:hover {
+    cursor: pointer;
 }
 
 .progress {
@@ -615,6 +655,8 @@ video {
 
 .buy-button:hover {
     cursor: pointer;
+    background-color: #9D8665;
+    transition-duration: 0.3s;
 }
 
 .bottom-background {
@@ -624,21 +666,48 @@ video {
 }
 
 /* BOOKING TICKETS BLOCK */
-/* 
+
 .booking-container {
+    padding-bottom: 85px;
+    padding-top: 100px;
+    padding-left: 160px;
     margin: 75px auto;
     max-width: 1440px;
-    border: rgb(0, 0, 0) 1px solid;
+    background-color: rgb(223, 229, 241);
     display: flex;
     column-gap: 40px;
 }
 
 .tickets-info {
-    border: rgb(0, 0, 0) 1px solid;
+    width: 400px;
 }
 
-.border-bottom h1 {
+.payment-container {
+    padding: 25px 30px 26px 30px;
+    
+    background-color: rgb(248, 229, 248);
+    width: 530px;
+}
+
+.booking-container h2 {
+    font-family: Forum;
     color: #9D8665;
+    font-size: 40px;
+    border-bottom: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.booking-container h4 {
+    margin-bottom: 60px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    color: #9D8665;
+    font-size: 18px;
+    border-bottom: #710707 3px solid;
 }
 
 .tickets-info p {
@@ -647,7 +716,25 @@ video {
 }
 
 .overview {
-    border: rgb(0, 0, 0) 1px solid;
+    background-color: rgb(241, 216, 198);
+    display: flex;
+    justify-content: space-between;
+}
+
+.calculating-block {
+
+}
+.ticket-time-block-item {
+    display: flex;
+    column-gap: 15px;
+}
+.ticket-time-block {
+    background-color: thistle;
+}
+.purchase-item {
+    display: flex;
+    justify-content: space-between;
+
 }
 
 .logo {
@@ -656,13 +743,109 @@ video {
     background-image: url("./assets/img/logo.png");
 }
 
-.tickets-info input {
-    width: 400px;
+.tickets-info form input {
+    margin-bottom: 20px;
     height: 45px;
     font-size: 18px;
-    background: url("./assets/img/tickets-booking/nameIcon.png") no-repeat;
     background-position: 15px 15px;
     padding-left: 45px;
+    border: 1px solid #030303;
+}
+
+.date-field {
+    width: 140px;
+    background: url("./assets/img/tickets-booking/date.png") no-repeat;
+}
+
+.time-field {
+    width: 140px;
+    margin-left: 15px;
+    background: url("./assets/img/tickets-booking/time.png") no-repeat;
+}
+
+.name-field {
+    width: 350px;
+    background: url("./assets/img/tickets-booking/nameIcon.png") no-repeat;
+}
+
+.e-mail-field {
+    width: 350px;
+    background: url("./assets/img/tickets-booking/email.png") no-repeat;
+}
+
+.phone-field {
+    width: 350px;
+    background: url("./assets/img/tickets-booking/tel.png") no-repeat;
+}
+
+.ticket-type-field {
+    width: 350px;
+    background: url("./assets/img/tickets-booking/Vector.png") no-repeat;
+}
+
+.calc-ticket-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.calc-ticket-block .calc {
+    width: 120px;
+    margin: 0px;
+    padding: 0px;
+    height: 38px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calc-ticket-block p {
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 18px;
+    color: #030303;
+}
+
+.calc-ticket-block input {
+    font-size: 28px;
+    margin-top: 25px;
+    top: -12px;
+}
+
+.calc-ticket-container h4 {
+    margin-bottom: 18px;
+}
+
+.calc-ticket-block .number-container {
+    overflow: hidden;
+}
+
+.calc-ticket-block .calc button {
+    width: 40px;
+    height: 38px;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 32px;
+    background-color: black;
+    color: white;
+}
+
+.calc button:hover {
+    cursor: pointer;
+}
+
+.calc-ticket-container {
+    padding: 10px 15px 15px 15px;
+    border: 1px solid #030303;
+}
+
+/* .calc-button-container {
+    background-color: black;
+    width: 25px;
+
+    border: 1px red solid;
+
 } */
 
 /* CONTACTS SECTION */
@@ -724,6 +907,16 @@ video {
     text-decoration: none;
 }
 
+.footer-menu a:hover {
+    color: #9D8665;
+    transition-duration: 0.3s;
+}
+
+.footer-menu a:active {
+    color: #7E6C51;
+    transition-duration: 0.1s;
+}
+
 .footer {
     margin: 0 auto;
     min-height: 392px;
@@ -753,4 +946,19 @@ video {
     font-size: 22px;
     color: #FFFFFF;
     text-decoration: none;
+}
+
+.developerInfo a:hover {
+    color: #9D8665;
+    transition-duration: 0.3s;
+}
+
+.developerInfo a:active {
+    color: #7E6C51;
+    transition-duration: 0.1s;
+}
+
+.links img:hover {
+    opacity: 80%;
+    transition-duration: 0.3s;
 }
