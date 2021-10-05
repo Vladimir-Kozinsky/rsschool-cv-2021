@@ -14,7 +14,6 @@ html {
 .container {
     margin: 0 auto;
     max-width: 1440px;
-    border: olive 1px solid;
 }
 
 /* HEADER */
@@ -88,6 +87,11 @@ html {
     width: 38px;
     height: 18px;
     background-image: url(./assets/img/burger-menu/burger-menu-icon.png);
+}
+
+.burger-menu-icon:hover {
+    cursor: pointer;
+    opacity: 70%;
 }
 
 /* WELCOME SECTION */
@@ -235,7 +239,6 @@ h1 {
     flex-wrap: wrap;
     column-gap: 60px;
     row-gap: 75px;
-    max-width: 1440px;
 }
 
 .tour-item {
@@ -248,7 +251,6 @@ h1 {
 .tour-img {
     width: 440px;
     height: 285px;
-    border: rgb(117, 117, 187) 1px solid;
 }
 
 .tours-container hr {
@@ -534,6 +536,11 @@ video {
     max-width: 720px;
 }
 
+.tickets-image-block img {
+    width: 100%;
+    height: auto;
+}
+
 .tickets-choose-block {
     display: flex;
     column-gap: 215px;
@@ -701,6 +708,7 @@ video {
 .bottom-background {
     margin-top: 75px;
     background-image: url("./assets/img/b-back.jpg");
+    background-position: center;
     height: 400px;
 }
 
@@ -715,6 +723,7 @@ video {
     background-color: rgb(223, 229, 241);
     display: flex;
     column-gap: 40px;
+    display: none;
 }
 
 .tickets-info {
@@ -998,6 +1007,15 @@ video {
     padding: 0px;
 }
 
+.map {
+    max-width: 960%;
+}
+
+.map img {
+    width: 100%;
+    height: auto;
+}
+
 /* FOOTER */
 
 .container-footer {
@@ -1091,6 +1109,9 @@ video {
 }
 
 @media (max-width: 1024px) {
+    .section {
+        padding: 60px 0px;
+    }
     .burger-menu-icon {
         display: block;
     }
@@ -1128,9 +1149,297 @@ video {
     .border-bottom h2 {
         font-size: 50px;
         line-height: 75px;
-        border: olive 1px solid;
     }
     .tours-container {
         margin-top: 60px;
+    }
+    /* VIRTUAL TOUR */
+    .tours-container {
+        margin-top: 60px;
+        row-gap: 60px;
+        justify-content: space-around;
+        column-gap: 0px;
+    }
+    .tour-item {
+        width: 330px;
+        height: 345px;
+    }
+    .tour-item img {
+        width: 100%;
+        height: auto;
+    }
+    .tours-container h3 {
+        font-size: 28px;
+        letter-spacing: 3px;
+    }
+    .tours-container p {
+        font-size: 20px;
+    }
+    .tours-container p:last-child {
+        font-size: 16px;
+    }
+    /* EXPLORE SECTION */
+    .explore-container {
+        justify-content: center;
+    }
+    .text-block {
+        width: 100%;
+        border: blanchedalmond 1px solid;
+    }
+    .image-block {
+        margin-top: 60px;
+        width: 100%;
+        border: blanchedalmond 1px solid;
+    }
+    .picture {
+        background-image: url("./assets/img/explore-img1.jpg ");
+        max-width: 720px;
+        border: blanchedalmond 1px solid;
+        margin: 0 auto;
+    }
+    .par-container {
+        margin-top: 60px;
+        max-width: 100%;
+        border: blanchedalmond 1px solid;
+        margin-bottom: 60px;
+    }
+    /* VIDEO SECTION */
+    .video-block {
+        border: rgb(207, 127, 5) 1px solid;
+    }
+    .video-colums {
+        display: inline;
+    }
+    .video-par-block p {
+        display: none;
+    }
+    video {
+        width: 100%;
+    }
+    .volume-progress {
+        width: 140px;
+    }
+    .progress {
+        width: 584px;
+    }
+    .video-slider {
+        column-gap: 40px;
+    }
+    .video-slider-item {
+        max-width: 300px;
+        max-height: 170px;
+    }
+    .video-slider-item-img {
+        width: 100%;
+        height: auto;
+    }
+    /* GALLERY-SECTION */
+    .gallery-container h2 {
+        font-size: 50px;
+    }
+    .gallery {
+        margin-top: 75px;
+        display: flex;
+        column-gap: 36px;
+        row-gap: 40px;
+        max-height: 1200px;
+        overflow: hidden;
+    }
+    .gallery-column1 {
+        max-width: 305px;
+    }
+    .gallery-column-item img {
+        width: 100%;
+        height: auto;
+    }
+    /* TICKETS SECTION  */
+    .tickets-image-block {
+        max-width: 700px;
+    }
+    .tickets-type-block {
+        display: none;
+    }
+    .map {
+        max-width: 694px;
+    }
+    .contacts-block h3 {
+        font-size: 24px;
+    }
+    .contacts-block li {
+        font-size: 20px;
+    }
+    .contacts-block {
+        column-gap: 15px;
+    }
+    .adress-container {
+        min-width: 275px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 0px;
+    }
+    .burger-menu-icon {
+        display: block;
+    }
+    .menu {
+        display: none;
+    }
+    .container {
+        max-width: 728px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .welcome-container {
+        padding-top: 50px;
+        height: 585px;
+        min-height: 585px;
+    }
+    .header-container {
+        height: 130px;
+        min-height: 130px;
+    }
+    h1 {
+        font-size: 50px;
+    }
+    .par p {
+        font-size: 24px;
+    }
+    .title-button {
+        margin-top: 50px;
+        width: 300px;
+        height: 60px;
+    }
+    .title-button a {
+        font-size: 20px;
+    }
+    .border-bottom h2 {
+        font-size: 50px;
+        line-height: 75px;
+    }
+    .tours-container {
+        margin-top: 60px;
+    }
+    /* VIRTUAL TOUR */
+    .tours-container {
+        margin-top: 60px;
+        row-gap: 60px;
+        justify-content: space-around;
+        column-gap: 0px;
+    }
+    .tour-item {
+        width: 330px;
+        height: 345px;
+    }
+    .tour-item img {
+        width: 100%;
+        height: auto;
+    }
+    .tours-container h3 {
+        font-size: 28px;
+        letter-spacing: 3px;
+    }
+    .tours-container p {
+        font-size: 20px;
+    }
+    .tours-container p:last-child {
+        font-size: 16px;
+    }
+    /* EXPLORE SECTION */
+    .explore-container {
+        justify-content: center;
+    }
+    .text-block {
+        width: 100%;
+        border: blanchedalmond 1px solid;
+    }
+    .image-block {
+        margin-top: 60px;
+        width: 100%;
+        border: blanchedalmond 1px solid;
+    }
+    .picture {
+        background-image: url("./assets/img/explore-img1.jpg ");
+        max-width: 720px;
+        border: blanchedalmond 1px solid;
+        margin: 0 auto;
+    }
+    .par-container {
+        margin-top: 60px;
+        max-width: 100%;
+        border: blanchedalmond 1px solid;
+        margin-bottom: 60px;
+    }
+    /* VIDEO SECTION */
+    .video-block {
+        border: rgb(207, 127, 5) 1px solid;
+    }
+    .video-colums {
+        display: inline;
+    }
+    .video-par-block p {
+        display: none;
+    }
+    video {
+        width: 100%;
+    }
+    .volume-progress {
+        width: 140px;
+    }
+    .progress {
+        width: 584px;
+    }
+    .video-slider {
+        column-gap: 40px;
+    }
+    .video-slider-item {
+        max-width: 300px;
+        max-height: 170px;
+    }
+    .video-slider-item-img {
+        width: 100%;
+        height: auto;
+    }
+    /* GALLERY-SECTION */
+    .gallery-container h2 {
+        font-size: 50px;
+    }
+    .gallery {
+        margin-top: 75px;
+        display: flex;
+        column-gap: 36px;
+        row-gap: 40px;
+        max-height: 1200px;
+        overflow: hidden;
+    }
+    .gallery-column1 {
+        max-width: 305px;
+    }
+    .gallery-column-item img {
+        width: 100%;
+        height: auto;
+    }
+    /* TICKETS SECTION  */
+    .tickets-image-block {
+        max-width: 700px;
+    }
+    .tickets-type-block {
+        display: none;
+    }
+    .map {
+        max-width: 694px;
+    }
+    .contacts-block h3 {
+        font-size: 24px;
+    }
+    .contacts-block li {
+        font-size: 20px;
+    }
+    .contacts-block {
+        column-gap: 15px;
+    }
+    .adress-container {
+        min-width: 275px;
     }
 }

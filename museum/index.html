@@ -54,18 +54,14 @@
                 </ul>
             </nav>
 
-            <div class="burger-menu-icon"></div>
-
-
-
+            <div onclick="myFunction()" class="burger-menu-icon"></div>
         </div>
     </header>
     <main class="main">
         <section class="section dark-section welcome-section">
             <div class="container welcome-container">
                 <div class="section-title">
-
-                    <nav class="burger-menu">
+                    <nav id="menu" class="burger-menu">
                         <ul>
                             <li><a href="#visiting">Visiting</a> <img src="./assets/img/burger-menu/arrow.png" alt="">
                             </li>
@@ -77,7 +73,6 @@
                             </li>
                         </ul>
                     </nav>
-
                     <h1>Welcome <br> to the Louvre</h1>
                 </div>
                 <div class="par">
@@ -89,7 +84,7 @@
             </div>
         </section>
 
-        <!--  <section class="section" id="visiting">
+        <section class="section" id="visiting">
             <div class="container border-bottom">
                 <h2>Virtual tour</h2>
                 <div class="tours-container">
@@ -148,8 +143,8 @@
                 <div class="text-block">
                     <h2>Picture explore</h2>
                     <div class="par-container">
-                        <p>Las Meninas is a 1656 painting by Diego Velázquez, the leading
-                            artist of the Spanish Golden Age.</p>
+                        <p>Las Meninas is a 1656 painting by Diego Velázquez, the leading artist of the Spanish Golden
+                            Age.</p>
                         <p>It was cleaned in 1984 to remove a <span>"yellow veil"</span> of dust that
                             had gathered since the previous restoration in the 19th century.</p>
                         <p>The cleaning provoked furious protests, not because the picture
@@ -192,19 +187,19 @@
                 </div>
                 <div class="video-slider">
                     <div class="video-slider-item">
-                        <img src="./assets/img/slider-item1.jpg" alt="">
+                        <img class="video-slider-item-img" src="./assets/img/slider-item1.jpg" alt="">
                         <div class="video-slider-itemButton">
                             <img src="./assets/img/youtubePlayIcon.png" alt="image">
                         </div>
                     </div>
                     <div class="video-slider-item">
-                        <img src="./assets/img/slider-item2.jpg" alt="">
+                        <img class="video-slider-item-img" src="./assets/img/slider-item2.jpg" alt="">
                         <div class="video-slider-itemButton">
                             <img src="./assets/img/youtubePlayIcon.png" alt="image">
                         </div>
                     </div>
                     <div class="video-slider-item">
-                        <img src="./assets/img/slider-item3.jpg" alt="">
+                        <img class="video-slider-item-img" src="./assets/img/slider-item3.jpg" alt="">
                         <div class="video-slider-itemButton">
                             <img src="./assets/img/youtubePlayIcon.png" alt="image">
                         </div>
@@ -380,13 +375,10 @@
                                 <div>Friday, August 19</div>
                             </div>
 
-
                             <div class="ticket-time-block-item">
                                 <div><img src="./assets/img/tickets-booking/time.png" alt=""></div>
                                 <div>16:30</div>
                             </div>
-
-
                             <div class="ticket-time-block-item">
                                 <div><img src="./assets/img/tickets-booking/temp.png" alt=""></div>
                                 <div>Temporary exhibition</div>
@@ -513,7 +505,13 @@
             const value = this.value;
             this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #C4C4C4 ${value}%, white 100%)`
         })
-    </script> -->
+
+        function burgerMenu() {
+
+            return alert('privet')
+            document.getElementById('menu').style.left = 20 + 'px'
+        }
+    </script>
 </body>
 
 
