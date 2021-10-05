@@ -11,23 +11,13 @@ html {
     scroll-behavior: smooth;
 }
 
-.section {
-    margin: 0px;
-    padding: 75px 0px;
-}
-
-.welcome-section {
-    padding-top: 0;
-}
-
-.dark-section {
-    background: #030303;
-}
-
 .container {
     margin: 0 auto;
     max-width: 1440px;
+    border: olive 1px solid;
 }
+
+/* HEADER */
 
 .header {
     background: #030303;
@@ -44,7 +34,6 @@ html {
     display: flex;
     justify-content: space-between;
     width: 199px;
-    /* border: #FFFFFF 1px solid; */
 }
 
 .logo {
@@ -61,7 +50,6 @@ html {
 
 .menu {
     width: 720px;
-    /* border: #FFFFFF 1px solid; */
 }
 
 .menu ul {
@@ -94,7 +82,28 @@ html {
     transition-duration: 0.1s;
 }
 
+.burger-menu-icon {
+    display: none;
+    right: 0px;
+    width: 38px;
+    height: 18px;
+    background-image: url(./assets/img/burger-menu/burger-menu-icon.png);
+}
+
 /* WELCOME SECTION */
+
+.section {
+    margin: 0px;
+    padding: 75px 0px;
+}
+
+.welcome-section {
+    padding-top: 0;
+}
+
+.dark-section {
+    background: #030303;
+}
 
 .welcome-container {
     min-height: 810px;
@@ -172,6 +181,36 @@ h1 {
     line-height: 26px;
     letter-spacing: 2px;
     color: #FFFFFF;
+}
+
+/* BURGER MENU */
+
+.burger-menu {
+    width: 110px;
+    position: absolute;
+    padding-left: 35px;
+    background-color: black;
+}
+
+.burger-menu li {
+    list-style: none;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.burger-menu a {
+    font-family: Roboto;
+    font-size: 20px;
+    color: #FFFFFF;
+    font-weight: 300;
+    text-decoration: none;
+}
+
+.burger-menu img {
+    width: 12px;
+    height: 12px;
 }
 
 /* VIRTUAL TOUR SECTION */
@@ -1049,4 +1088,49 @@ video {
 .links img:hover {
     opacity: 80%;
     transition-duration: 0.3s;
+}
+
+@media (max-width: 1024px) {
+    .burger-menu-icon {
+        display: block;
+    }
+    .menu {
+        display: none;
+    }
+    .container {
+        max-width: 984px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .welcome-container {
+        padding-top: 50px;
+        height: 585px;
+        min-height: 585px;
+    }
+    .header-container {
+        height: 130px;
+        min-height: 130px;
+    }
+    h1 {
+        font-size: 50px;
+    }
+    .par p {
+        font-size: 24px;
+    }
+    .title-button {
+        margin-top: 50px;
+        width: 300px;
+        height: 60px;
+    }
+    .title-button a {
+        font-size: 20px;
+    }
+    .border-bottom h2 {
+        font-size: 50px;
+        line-height: 75px;
+        border: olive 1px solid;
+    }
+    .tours-container {
+        margin-top: 60px;
+    }
 }
