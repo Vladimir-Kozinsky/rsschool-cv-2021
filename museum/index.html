@@ -54,7 +54,7 @@
                 </ul>
             </nav>
 
-            <div onclick="myFunction()" class="burger-menu-icon"></div>
+            <div onclick="burgerMenu()" class="burger-menu-icon"></div>
         </div>
     </header>
     <main class="main">
@@ -73,12 +73,12 @@
                             </li>
                         </ul>
                     </nav>
-                    <h1>Welcome <br> to the Louvre</h1>
+                    <h1 id="h1">Welcome <br> to the Louvre</h1>
                 </div>
-                <div class="par">
+                <div id="par" class="par">
                     <p>From the castle to the museum</p>
                 </div>
-                <div class="title-button">
+                <div id="button" class="title-button">
                     <a>Discover the Louvre</a>
                 </div>
             </div>
@@ -255,7 +255,7 @@
             </div>
         </section>
         <section class="section" id="tickets">
-            <div class="container border-bottom">
+            <div class="container border-bottom tickets-container">
                 <h2>Buy tickets</h2>
                 <div class="tickets-block">
                     <div class="tickets-image-block">
@@ -304,14 +304,12 @@
                                 </div>
                             </div>
                             <div class="total-container">Total: 225</div>
-                            <button class="buy-button">Buy Now</button>
+                            <button onclick="ticketMove()" class="buy-button">Buy Now</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="bottom-background">
-            </div>
-            <div class="booking-container border-bottom">
+            <div id="ticket" class="booking-container border-bottom">
                 <div class="tickets-info">
                     <div class="logo"></div>
                     <h2>Booking tickets</h2>
@@ -369,7 +367,6 @@
                         <div>
                             <h3>Overview</h3>
                             <h4>Tour to Louvre</h4>
-
                             <div class="ticket-time-block-item">
                                 <div><img src="./assets/img/tickets-booking/date.png" alt=""></div>
                                 <div>Friday, August 19</div>
@@ -382,7 +379,6 @@
                             <div class="ticket-time-block-item">
                                 <div><img src="./assets/img/tickets-booking/temp.png" alt=""></div>
                                 <div>Temporary exhibition</div>
-
                             </div>
                         </div>
                         <div>
@@ -424,11 +420,11 @@
                     <div class="credit-card-backside"></div>
                     <div class="credit-card"></div>
                     <div class="book-button"><a href="">Book</a></div>
-
-
-
                 </div>
             </div>
+            <div class="bottom-background">
+            </div>
+
 
 
 
@@ -493,6 +489,7 @@
             <a href="https://github.com/Vladimir-Kozinsky">Vladimir Kozinsky</a>
         </div>
     </footer>
+
     <script>
         const progress = document.querySelector('.progress');
         const volumeProgress = document.querySelector('.volume-progress');
@@ -507,9 +504,40 @@
         })
 
         function burgerMenu() {
+            document.getElementById('menu').style.left = getComputedStyle(document.getElementById('menu')).left
+            if (parseInt(getComputedStyle(document.getElementById('menu')).left.replace()) >= 0) {
+                let timer1 = setInterval(function () {
+                    if (parseInt(document.getElementById('menu').style.left.replace()) <= -200) {
+                        clearInterval(timer1); // закончить анимацию через 2 секунды
+                        document.getElementById('h1').style.visibility = "visible"
+                        document.getElementById('par').style.visibility = "visible"
+                        document.getElementById('button').style.visibility = "visible"
+                    }
+                    draw1();
+                }, 15);
 
-            return alert('privet')
-            document.getElementById('menu').style.left = 20 + 'px'
+            } else {
+                document.getElementById('h1').style.visibility = "hidden"
+                document.getElementById('par').style.visibility = "hidden"
+                document.getElementById('button').style.visibility = "hidden"
+                let timer = setInterval(function () {
+                    if (parseInt(document.getElementById('menu').style.left.replace()) >= 0) {
+                        clearInterval(timer); // закончить анимацию через 2 секунды
+                    }
+                    draw();
+                }, 15);
+            }
+            function draw() {
+                document.getElementById('menu').style.left = (parseInt(document.getElementById('menu').style.left.replace()) + 5) + 'px';
+            }
+            function draw1() {
+                document.getElementById('menu').style.left = (parseInt(document.getElementById('menu').style.left.replace()) - 5) + 'px';
+            }
+        }
+
+        function ticketMove() {
+            document.getElementById('ticket').style.left = 150 + 'px'
+
         }
     </script>
 </body>

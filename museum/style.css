@@ -191,7 +191,9 @@ h1 {
 
 .burger-menu {
     width: 110px;
+    padding-right: 20px;
     position: absolute;
+    left: -200px;
     padding-left: 35px;
     background-color: black;
 }
@@ -715,6 +717,11 @@ video {
 /* BOOKING TICKETS BLOCK */
 
 .booking-container {
+    position: fixed;
+    z-index: 3;
+    bottom: -4870px;
+    left: -800px;
+    width: 100%;
     padding-bottom: 85px;
     padding-top: 100px;
     padding-left: 160px;
@@ -723,7 +730,6 @@ video {
     background-color: rgb(223, 229, 241);
     display: flex;
     column-gap: 40px;
-    display: none;
 }
 
 .tickets-info {
