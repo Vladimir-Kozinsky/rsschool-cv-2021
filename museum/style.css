@@ -716,12 +716,17 @@ video {
 
 /* BOOKING TICKETS BLOCK */
 
+.parent-block {
+    position: relative;
+}
+
 .booking-container {
-    position: fixed;
+    position: absolute;
     z-index: 3;
-    bottom: -4870px;
-    left: -800px;
+    top: -896px;
+    left: -1800px;
     width: 100%;
+    visibility: hidden;
     padding-bottom: 85px;
     padding-top: 100px;
     padding-left: 160px;
