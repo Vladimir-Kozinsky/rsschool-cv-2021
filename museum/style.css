@@ -33,15 +33,17 @@ html {
     display: flex;
     justify-content: space-between;
     width: 199px;
+    align-items: center;
 }
 
 .logo {
     width: 49px;
     height: 26px;
-    background-image: url("assets/svg/logo.svg");
+    background-image: url("./assets/img/logo.png");
+    background-position: center;
 }
 
-.logo-name {
+.logo-name a {
     text-transform: uppercase;
     color: #FFFFFF;
     font-size: 28px;
@@ -110,12 +112,49 @@ html {
 }
 
 .welcome-container {
+    position: relative;
     min-height: 810px;
-    padding-top: 150px;
-    background-repeat: no-repeat;
+    /* min-height: 810px; */
     /* background-image: url("assets/img/welcome.jpg"); */
-    background: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) calc(50% - 250px), transparent calc(40% + 100px)), url("assets/img/welcome.jpg") no-repeat top right;
-    background-size: auto 100%;
+    /* background: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) calc(50% - 250px), transparent calc(40% + 100px)), url("") no-repeat top right; */
+    border: white 1px solid;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* WELCOME-SLIDER */
+
+.welcome-slider-wrapper {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 1000px;
+    height: 750px;
+    border: white 1px solid;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.welcome-slider {
+    width: 3000px;
+    height: 750px;
+    border: rgb(106, 253, 48) 1px solid;
+    display: flex;
+}
+
+.slider-item {
+    width: 1000px;
+    height: 750px;
+    background: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) calc(50% - 250px), transparent calc(40% + 100px)), url("./assets/img/welcome.jpg") no-repeat top right;
+}
+
+.slider-control-panel {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 700px;
+    height: 120px;
+    background-color: black;
 }
 
 h2 {
@@ -135,6 +174,7 @@ h2:hover {
 }
 
 h1 {
+    margin-top: 150px;
     color: #FFFFFF;
     font-family: Forum;
     font-style: normal;
@@ -261,6 +301,11 @@ h1 {
     size: 2px;
 }
 
+.tour-item:hover hr {
+    width: 440px;
+    transition: 0.7s;
+}
+
 .tours-container h3 {
     margin-top: 25px;
     font-family: Forum;
@@ -291,6 +336,29 @@ h1 {
 }
 
 /* PICTURE EXPLORE SECTION */
+
+.polzunok {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    background: transparent;
+    cursor: col-resize;
+    width: 720px;
+    left: 0;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    position: relative;
+    position: absolute;
+    top: 343px;
+}
+
+.polzunok::-moz-range-thumb {
+    height: 700px;
+    width: 40px;
+    background: url("./assets/img/explore-slider.png");
+    cursor: pointer;
+}
 
 .dark-section .border-bottom h2 {
     color: #FFFFFF;
@@ -334,14 +402,24 @@ h1 {
 .picture {
     background-image: url("./assets/img/explore-img1.jpg ");
     max-width: 720px;
-}
-
-.picture img:last-child {
     position: relative;
-    left: -24px
 }
 
-.picture img:last-child:hover {
+.filter-block {
+    overflow: hidden;
+}
+
+.picture img:first-child {
+    border: chartreuse 1px solid;
+}
+
+.picture .line-control {
+    position: absolute;
+    top: 0px;
+    left: 420px;
+}
+
+.picture .line-control:hover {
     cursor: pointer;
 }
 
@@ -822,9 +900,7 @@ video {
     font-size: 18px;
 }
 
-.logo {
-    width: 85px;
-    height: 41px;
+.container-footer .logo {
     background-image: url("./assets/img/logo.png");
 }
 

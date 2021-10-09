@@ -74,13 +74,23 @@
                         </ul>
                     </nav>
                     <h1 id="h1">Welcome <br> to the Louvre</h1>
+                    <div id="par" class="par">
+                        <p>From the castle to the museum</p>
+                    </div>
+                    <div id="button" class="title-button">
+                        <a>Discover the Louvre</a>
+                    </div>
                 </div>
-                <div id="par" class="par">
-                    <p>From the castle to the museum</p>
+                <div class="welcome-slider-wrapper">
+                    <div class="welcome-slider">
+                        <div class="slider-item"></div>
+                        <div class="slider-item"></div>
+                        <div class="slider-item"></div>
+                    </div>
+
                 </div>
-                <div id="button" class="title-button">
-                    <a>Discover the Louvre</a>
-                </div>
+
+                <div class="slider-control-panel"></div>
             </div>
         </section>
 
@@ -152,12 +162,24 @@
                     </div>
                 </div>
                 <div class="image-block">
+
                     <div class="picture">
-                        <img src="./assets/img/explore-img2.jpg" alt="">
-                        <img class="line-control" src="./assets/img/explore-slider.png" alt="">
+                        <div id="kobavenusab" class="filter-block">
+                            <input oninput="beforeAfter()" onchange="beforeAfter()" type="range" min="0" max="100"
+                                value="0" id="pedsumid" class="polzunok">
+                            <img src="./assets/img/explore-img2.jpg" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
+            <script>
+                function beforeAfter() {
+                    console.log(document.getElementById('kobavenusab').style.width = document.getElementById('pedsumid').value + "px")
+                    document.getElementById('kobavenusab').style.width = document.getElementById('pedsumid').value + "%";
+
+                }
+
+            </script>
         </section>
 
         <section class="section " id="video">
@@ -173,9 +195,7 @@
                 </div>
                 <div class="video-block">
                     <video src="assets/video/video.mp4" poster="assets/video/poster.jpg">
-
                     </video>
-
                 </div>
 
                 <div class="control-panel">
@@ -555,7 +575,7 @@
                         clearInterval(timer1); // закончить анимацию через 2 секунды
                     }
                     draw1();
-                }, );
+                });
 
             } else {
                 // 
@@ -583,6 +603,7 @@
             }
         }
     </script>
+    <script src="./assets/scripts/script.js"></script>
 </body>
 
 
