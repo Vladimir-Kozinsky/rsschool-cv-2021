@@ -83,15 +83,104 @@
                 </div>
                 <div class="welcome-slider-wrapper">
                     <div class="welcome-slider">
-                        <div class="slider-item"></div>
-                        <div class="slider-item"></div>
-                        <div class="slider-item"></div>
+                        <div class="sliderItem active">
+                            <img src="./assets/img/welcome-slider/1.jpg" alt="">
+                        </div>
+                        <div class="sliderItem">
+                            <img src="./assets/img/welcome-slider/2.jpg" alt="">
+                        </div>
+                        <div class="sliderItem">
+                            <img src="./assets/img/welcome-slider/3.jpg" alt="">
+                        </div>
+                        <div class="sliderItem">
+                            <img src="./assets/img/welcome-slider/4.jpg" alt="">
+                        </div>
+                        <div class="sliderItem">
+                            <img src="./assets/img/welcome-slider/5.jpg" alt="">
+                        </div>
+
                     </div>
 
                 </div>
 
-                <div class="slider-control-panel"></div>
+                <div class="slider-control-panel">
+                    <div class="slideNumbers-container">
+                        <div class="slideNumber-container">
+                            <input class="slideNumber" type="number" value="01">
+                        </div>
+                        <div class="line-between-numbers"></div>
+                        <div class="slideNumber-container">
+                            <input class="slideNumber" type="number" value="05">
+                        </div>
+
+                    </div>
+                    <div class=" dotsBlock">
+                        <div class="dots active"></div>
+                        <div class="dots "></div>
+                        <div class="dots"></div>
+                        <div class="dots"></div>
+                        <div class="dots"></div>
+                    </div>
+                    <div class="slider-buttons">
+                        <button class="prev" id="btn-prev"></button>
+                        <button class="next" id="btn-next"></button>
+                    </div>
+                </div>
             </div>
+            <script>
+
+                const slides = document.querySelectorAll('.sliderItem')
+                const next = document.getElementById('btn-next')
+                const prev = document.getElementById('btn-prev')
+                const dots = document.querySelectorAll('.dots')
+                let index = 0
+
+                const activeSlide = (n) => {
+                    for (slider of slides) {
+                        slider.classList.remove('active')
+                    }
+                    slides[n].classList.add('active')
+                }
+                const activeDot = (n) => {
+                    for (dot of dots) {
+                        dot.classList.remove('active')
+                    }
+                    dots[n].classList.add('active')
+                }
+                const nextSlide = () => {
+                    if (index == slides.length - 1) {
+                        index = 0
+                        activeSlide(index)
+                        activeDot(index)
+                    } else {
+                        index++
+                        activeSlide(index)
+                        activeDot(index)
+                    }
+                }
+                const prevSlide = () => {
+                    if (index == 0) {
+                        index = slides.length - 1
+                        activeSlide(index)
+                        activeDot(index)
+                    } else {
+                        index--
+                        activeSlide(index)
+                        activeDot(index)
+                    }
+                }
+                dots.forEach((element, indexDot) => {
+                    console.log(indexDot)
+                    element.addEventListener('click', () => {
+                        index = indexDot;
+                        activeSlide(index)
+                        activeDot(index)
+                    })
+                });
+
+                next.addEventListener('click', nextSlide)
+                prev.addEventListener('click', prevSlide)
+            </script>
         </section>
 
         <section class="section" id="visiting">
@@ -166,7 +255,7 @@
                     <div class="picture">
                         <div id="kobavenusab" class="filter-block">
                             <input oninput="beforeAfter()" onchange="beforeAfter()" type="range" min="0" max="100"
-                                value="0" id="pedsumid" class="polzunok">
+                                value="40" id="pedsumid" class="polzunok">
                             <img src="./assets/img/explore-img2.jpg" alt="">
                         </div>
                     </div>

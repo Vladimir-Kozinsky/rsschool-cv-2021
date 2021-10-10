@@ -119,7 +119,7 @@ html {
     /* background: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) calc(50% - 250px), transparent calc(40% + 100px)), url("") no-repeat top right; */
     border: white 1px solid;
     z-index: 1;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 /* WELCOME-SLIDER */
@@ -132,7 +132,7 @@ html {
     height: 750px;
     border: white 1px solid;
     z-index: -1;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .welcome-slider {
@@ -142,10 +142,85 @@ html {
     display: flex;
 }
 
-.slider-item {
+.sliderItem {
     width: 1000px;
     height: 750px;
     background: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) calc(50% - 250px), transparent calc(40% + 100px)), url("./assets/img/welcome.jpg") no-repeat top right;
+    display: none;
+}
+
+.welcome-slider .active {
+    display: block;
+}
+
+.slideNumbers-container {
+    display: flex;
+    justify-content: space-between;
+    width: 76px;
+}
+
+.slideNumber-container {
+    width: 25px;
+    height: 25px;
+    overflow: hidden;
+}
+
+.slideNumber {
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 22px;
+    font-family: Roboto;
+    font-weight: 400;
+    margin-top: -3px;
+}
+
+.line-between-numbers {
+    height: 20px;
+    border-left: 3px solid white;
+}
+
+.dots {
+    width: 16px;
+    height: 16px;
+    background-color: #FFFFFF;
+}
+
+.dotsBlock {
+    width: 180px;
+    height: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dotsBlock .active {
+    background-color: #D2B183;
+}
+
+.slider-buttons {
+    width: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.slider-buttons .prev {
+    width: 30px;
+    height: 8px;
+    border: none;
+    background: url('./assets/img/welcome-slider/prev.png');
+    background-repeat: no-repeat;
+}
+
+.slider-buttons .next {
+    width: 30px;
+    height: 8px;
+    border: none;
+    background: url('./assets/img/welcome-slider/next.png');
+    background-repeat: no-repeat;
+}
+
+.slider-buttons .next:hover, .slider-buttons .prev:hover, .dots:hover {
+    cursor: pointer;
 }
 
 .slider-control-panel {
@@ -155,6 +230,11 @@ html {
     width: 700px;
     height: 120px;
     background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 75px;
+    padding-right: 75px;
 }
 
 h2 {
@@ -356,6 +436,7 @@ h1 {
 .polzunok::-moz-range-thumb {
     height: 700px;
     width: 40px;
+    border: none;
     background: url("./assets/img/explore-slider.png");
     cursor: pointer;
 }
@@ -407,10 +488,6 @@ h1 {
 
 .filter-block {
     overflow: hidden;
-}
-
-.picture img:first-child {
-    border: chartreuse 1px solid;
 }
 
 .picture .line-control {
