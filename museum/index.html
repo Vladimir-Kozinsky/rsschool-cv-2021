@@ -54,13 +54,22 @@
                 </ul>
             </nav>
 
-            <div onclick="burgerMenu()" class="burger-menu-icon"></div>
+            <div onclick="burgerMenu()" class="burger-menu-icon" id="menu-icon"></div>
         </div>
     </header>
     <main class="main">
         <section class="section dark-section welcome-section">
             <div class="container welcome-container">
-                <div class="section-title">
+                <div class="welcome-title-container">
+                    <div class="welcome-title-block">
+                        <h1 id="h1">Welcome <br> to the Louvre</h1>
+                        <div id="par" class="par">
+                            <p>From the castle to the museum</p>
+                        </div>
+                        <div id="button" class="title-button">
+                            <a>Discover the Louvre</a>
+                        </div>
+                    </div>
                     <nav id="menu" class="burger-menu">
                         <ul>
                             <li><a href="#visiting">Visiting</a> <img src="./assets/img/burger-menu/arrow.png" alt="">
@@ -72,16 +81,50 @@
                             <li><a href="#contacts">Contacts</a><img src="./assets/img/burger-menu/arrow.png" alt="">
                             </li>
                         </ul>
+                        <script>
+                            function burgerMenu() {
+                                document.getElementById('menu').style.left = getComputedStyle(document.getElementById('menu')).left
+                                if (parseInt(getComputedStyle(document.getElementById('menu')).left.replace()) >= 25) {
+                                    let timer1 = setInterval(function () {
+                                        if (parseInt(document.getElementById('menu').style.left.replace()) <= -170) {
+                                            clearInterval(timer1); // закончить анимацию через 2 секунды
+                                            document.getElementById('h1').style.visibility = "visible"
+                                            document.getElementById('par').style.visibility = "visible"
+                                            document.getElementById('button').style.visibility = "visible"
+                                            document.getElementById('menu').style.visibility = "hidden"
+                                            document.getElementById('menu-icon').style.background = "url(./assets/img/burger-menu/burger-menu-icon.png)"
+                                            document.getElementById('menu-icon').style.width = "38px"
+                                            document.getElementById('menu-icon').style.height = "18px"
+                                        }
+                                        draw1();
+                                    }, 15);
+
+                                } else {
+                                    document.getElementById('menu-icon').style.background = "url(./assets/img/burger-menu/cros.png)"
+                                    document.getElementById('menu-icon').style.width = "25px"
+                                    document.getElementById('menu-icon').style.height = "25px"
+                                    document.getElementById('menu').style.visibility = "visible"
+                                    document.getElementById('h1').style.visibility = "hidden"
+                                    document.getElementById('par').style.visibility = "hidden"
+                                    document.getElementById('button').style.visibility = "hidden"
+                                    let timer = setInterval(function () {
+                                        if (parseInt(document.getElementById('menu').style.left.replace()) >= 25) {
+                                            clearInterval(timer); // закончить анимацию через 2 секунды
+                                        }
+                                        draw();
+                                    }, 15);
+                                }
+                                function draw() {
+                                    document.getElementById('menu').style.left = (parseInt(document.getElementById('menu').style.left.replace()) + 5) + 'px';
+                                }
+                                function draw1() {
+                                    document.getElementById('menu').style.left = (parseInt(document.getElementById('menu').style.left.replace()) - 5) + 'px';
+                                }
+                            }
+                        </script>
                     </nav>
-                    <h1 id="h1">Welcome <br> to the Louvre</h1>
-                    <div id="par" class="par">
-                        <p>From the castle to the museum</p>
-                    </div>
-                    <div id="button" class="title-button">
-                        <a>Discover the Louvre</a>
-                    </div>
                 </div>
-                <div class="welcome-slider-wrapper">
+                <div class="welcome-slider-container">
                     <div class="welcome-slider">
                         <div class="sliderItem active">
                             <img src="./assets/img/welcome-slider/1.jpg" alt="">
@@ -98,89 +141,103 @@
                         <div class="sliderItem">
                             <img src="./assets/img/welcome-slider/5.jpg" alt="">
                         </div>
+                        <div class="slider-control-panel">
+                            <div class="slideNumbers-container">
+                                <div class="slideNumber-container">
+                                    <input class="slideNumber" type="number" readonly value="01" id="currentNumber">
+                                </div>
+                                <div class="line-between-numbers"></div>
+                                <div class="slideNumber-container">
+                                    <input class="slideNumber" type="number" readonly value="05">
+                                </div>
+                            </div>
+                            <div class="dotsBlock">
+                                <div class="dots active"></div>
+                                <div class="dots "></div>
+                                <div class="dots"></div>
+                                <div class="dots"></div>
+                                <div class="dots"></div>
+                            </div>
+                            <div class="slider-buttons">
+                                <button class="prev" id="btn-prev"></button>
+                                <button class="next" id="btn-next"></button>
+                            </div>
+                            <script>
+                                const slides = document.querySelectorAll('.sliderItem')
+                                const next = document.getElementById('btn-next')
+                                const prev = document.getElementById('btn-prev')
+                                const dots = document.querySelectorAll('.dots')
+                                let index = 0
+                                document.getElementById('currentNumber').value = '0' + (index + 1)
 
-                    </div>
+                                const activeSlide = (n) => {
+                                    for (slider of slides) {
+                                        slider.classList.remove('active')
+                                    }
+                                    slides[n].classList.add('active')
+                                }
+                                const activeDot = (n) => {
+                                    for (dot of dots) {
+                                        dot.classList.remove('active')
+                                    }
+                                    dots[n].classList.add('active')
+                                }
+                                const nextSlide = () => {
+                                    if (index == slides.length - 1) {
+                                        index = 0
+                                        activeSlide(index)
+                                        activeDot(index)
+                                        document.getElementById('currentNumber').value = '0' + (index + 1)
+                                    } else {
+                                        index++
+                                        activeSlide(index)
+                                        activeDot(index)
+                                        document.getElementById('currentNumber').value = '0' + (index + 1)
+                                    }
+                                }
+                                const prevSlide = () => {
+                                    if (index == 0) {
+                                        index = slides.length - 1
+                                        activeSlide(index)
+                                        activeDot(index)
+                                        document.getElementById('currentNumber').value = '0' + (index + 1)
+                                    } else {
+                                        index--
+                                        activeSlide(index)
+                                        activeDot(index)
+                                        document.getElementById('currentNumber').value = '0' + (index + 1)
+                                    }
+                                }
+                                dots.forEach((element, indexDot) => {
+                                    console.log(indexDot)
+                                    element.addEventListener('click', () => {
+                                        index = indexDot;
+                                        activeSlide(index)
+                                        activeDot(index)
+                                        document.getElementById('currentNumber').value = '0' + (index + 1)
+                                    })
+                                });
 
-                </div>
-
-                <div class="slider-control-panel">
-                    <div class="slideNumbers-container">
-                        <div class="slideNumber-container">
-                            <input class="slideNumber" type="number" value="01">
+                                next.addEventListener('click', nextSlide)
+                                prev.addEventListener('click', prevSlide)
+                            </script> -->
                         </div>
-                        <div class="line-between-numbers"></div>
-                        <div class="slideNumber-container">
-                            <input class="slideNumber" type="number" value="05">
-                        </div>
+                    </div>
 
-                    </div>
-                    <div class=" dotsBlock">
-                        <div class="dots active"></div>
-                        <div class="dots "></div>
-                        <div class="dots"></div>
-                        <div class="dots"></div>
-                        <div class="dots"></div>
-                    </div>
-                    <div class="slider-buttons">
-                        <button class="prev" id="btn-prev"></button>
-                        <button class="next" id="btn-next"></button>
-                    </div>
                 </div>
             </div>
-            <script>
+            <!-- <div class="container welcome-container">
+                <div class="section-title">
+                    
+                </div>
+                <div class="slider-column">
+                    
 
-                const slides = document.querySelectorAll('.sliderItem')
-                const next = document.getElementById('btn-next')
-                const prev = document.getElementById('btn-prev')
-                const dots = document.querySelectorAll('.dots')
-                let index = 0
+                    
+                </div>
 
-                const activeSlide = (n) => {
-                    for (slider of slides) {
-                        slider.classList.remove('active')
-                    }
-                    slides[n].classList.add('active')
-                }
-                const activeDot = (n) => {
-                    for (dot of dots) {
-                        dot.classList.remove('active')
-                    }
-                    dots[n].classList.add('active')
-                }
-                const nextSlide = () => {
-                    if (index == slides.length - 1) {
-                        index = 0
-                        activeSlide(index)
-                        activeDot(index)
-                    } else {
-                        index++
-                        activeSlide(index)
-                        activeDot(index)
-                    }
-                }
-                const prevSlide = () => {
-                    if (index == 0) {
-                        index = slides.length - 1
-                        activeSlide(index)
-                        activeDot(index)
-                    } else {
-                        index--
-                        activeSlide(index)
-                        activeDot(index)
-                    }
-                }
-                dots.forEach((element, indexDot) => {
-                    console.log(indexDot)
-                    element.addEventListener('click', () => {
-                        index = indexDot;
-                        activeSlide(index)
-                        activeDot(index)
-                    })
-                });
+            </div> -->
 
-                next.addEventListener('click', nextSlide)
-                prev.addEventListener('click', prevSlide)
-            </script>
         </section>
 
         <section class="section" id="visiting">
@@ -251,14 +308,95 @@
                     </div>
                 </div>
                 <div class="image-block">
-
-                    <div class="picture">
-                        <div id="kobavenusab" class="filter-block">
-                            <input oninput="beforeAfter()" onchange="beforeAfter()" type="range" min="0" max="100"
-                                value="40" id="pedsumid" class="polzunok">
-                            <img src="./assets/img/explore-img2.jpg" alt="">
+                    <div class="img-comp-container">
+                        <div class="img-comp-img">
+                            <img src="./assets/img/explore-img1.jpg" width="720" height="700">
+                        </div>
+                        <div class="img-comp-img img-comp-overlay">
+                            <img src="./assets/img/explore-img2.jpg" width="720" height="700">
                         </div>
                     </div>
+                    <script>
+                        function initComparisons() {
+                            var x, i;
+                            /*find all elements with an "overlay" class:*/
+                            x = document.getElementsByClassName("img-comp-overlay");
+                            for (i = 0; i < x.length; i++) {
+                                /*once for each "overlay" element:
+                                pass the "overlay" element as a parameter when executing the compareImages function:*/
+                                compareImages(x[i]);
+                            }
+                            function compareImages(img) {
+                                var slider, img, clicked = 0, w, h;
+                                /*get the width and height of the img element*/
+                                w = img.offsetWidth;
+                                h = img.offsetHeight;
+                                /*set the width of the img element to 50%:*/
+                                img.style.width = (w / 2) + "px";
+                                /*create slider:*/
+                                slider = document.createElement("DIV");
+                                slider.setAttribute("class", "img-comp-slider");
+                                /*insert slider*/
+                                img.parentElement.insertBefore(slider, img);
+                                /*position the slider in the middle:*/
+                                slider.style.top = 0 + "px";
+                                slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
+                                /*execute a function when the mouse button is pressed:*/
+                                slider.addEventListener("mousedown", slideReady);
+                                /*and another function when the mouse button is released:*/
+                                window.addEventListener("mouseup", slideFinish);
+                                /*or touched (for touch screens:*/
+                                slider.addEventListener("touchstart", slideReady);
+                                /*and released (for touch screens:*/
+                                window.addEventListener("touchstop", slideFinish);
+                                function slideReady(e) {
+                                    /*prevent any other actions that may occur when moving over the image:*/
+                                    e.preventDefault();
+                                    /*the slider is now clicked and ready to move:*/
+                                    clicked = 1;
+                                    /*execute a function when the slider is moved:*/
+                                    window.addEventListener("mousemove", slideMove);
+                                    window.addEventListener("touchmove", slideMove);
+                                }
+                                function slideFinish() {
+                                    /*the slider is no longer clicked:*/
+                                    clicked = 0;
+                                }
+                                function slideMove(e) {
+                                    var pos;
+                                    /*if the slider is no longer clicked, exit this function:*/
+                                    if (clicked == 0) return false;
+                                    /*get the cursor's x position:*/
+                                    pos = getCursorPos(e)
+                                    /*prevent the slider from being positioned outside the image:*/
+                                    if (pos < 0) pos = 0;
+                                    if (pos > w) pos = w;
+                                    /*execute a function that will resize the overlay image according to the cursor:*/
+                                    slide(pos);
+                                }
+                                function getCursorPos(e) {
+                                    var a, x = 0;
+                                    e = e || window.event;
+                                    /*get the x positions of the image:*/
+                                    a = img.getBoundingClientRect();
+                                    /*calculate the cursor's x coordinate, relative to the image:*/
+                                    x = e.pageX - a.left;
+                                    /*consider any page scrolling:*/
+                                    x = x - window.pageXOffset;
+                                    return x;
+                                }
+                                function slide(x) {
+                                    /*resize the image:*/
+                                    img.style.width = x + "px";
+                                    /*position the slider:*/
+                                    slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
+                                }
+                            }
+                        }
+
+                        initComparisons();
+                    </script>
+            
                 </div>
             </div>
             <script>
@@ -622,37 +760,7 @@
             this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #C4C4C4 ${value}%, white 100%)`
         })
 
-        function burgerMenu() {
-            document.getElementById('menu').style.left = getComputedStyle(document.getElementById('menu')).left
-            if (parseInt(getComputedStyle(document.getElementById('menu')).left.replace()) >= 0) {
-                let timer1 = setInterval(function () {
-                    if (parseInt(document.getElementById('menu').style.left.replace()) <= -200) {
-                        clearInterval(timer1); // закончить анимацию через 2 секунды
-                        document.getElementById('h1').style.visibility = "visible"
-                        document.getElementById('par').style.visibility = "visible"
-                        document.getElementById('button').style.visibility = "visible"
-                    }
-                    draw1();
-                }, 15);
 
-            } else {
-                document.getElementById('h1').style.visibility = "hidden"
-                document.getElementById('par').style.visibility = "hidden"
-                document.getElementById('button').style.visibility = "hidden"
-                let timer = setInterval(function () {
-                    if (parseInt(document.getElementById('menu').style.left.replace()) >= 0) {
-                        clearInterval(timer); // закончить анимацию через 2 секунды
-                    }
-                    draw();
-                }, 15);
-            }
-            function draw() {
-                document.getElementById('menu').style.left = (parseInt(document.getElementById('menu').style.left.replace()) + 5) + 'px';
-            }
-            function draw1() {
-                document.getElementById('menu').style.left = (parseInt(document.getElementById('menu').style.left.replace()) - 5) + 'px';
-            }
-        }
 
         function ticketMove() {
             document.getElementById('ticket').style.left = getComputedStyle(document.getElementById('ticket')).left

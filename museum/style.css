@@ -88,7 +88,8 @@ html {
     right: 0px;
     width: 38px;
     height: 18px;
-    background-image: url(./assets/img/burger-menu/burger-menu-icon.png);
+    background: url(./assets/img/burger-menu/burger-menu-icon.png);
+    background-repeat: no-repeat;
 }
 
 .burger-menu-icon:hover {
@@ -112,149 +113,27 @@ html {
 }
 
 .welcome-container {
+    display: flex;
     position: relative;
-    min-height: 810px;
-    /* min-height: 810px; */
-    /* background-image: url("assets/img/welcome.jpg"); */
-    /* background: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) calc(50% - 250px), transparent calc(40% + 100px)), url("") no-repeat top right; */
-    border: white 1px solid;
+}
+
+.welcome-title-container {
+    width: 30%;
+}
+
+.welcome-slider-container {
+    width: 70%;
+}
+
+/* welcome-title-container */
+
+.welcome-title-block {
+    position: absolute;
     z-index: 1;
-    /* overflow: hidden; */
-}
-
-/* WELCOME-SLIDER */
-
-.welcome-slider-wrapper {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    width: 1000px;
-    height: 750px;
-    border: white 1px solid;
-    z-index: -1;
-    /* overflow: hidden; */
-}
-
-.welcome-slider {
-    width: 3000px;
-    height: 750px;
-    border: rgb(106, 253, 48) 1px solid;
-    display: flex;
-}
-
-.sliderItem {
-    width: 1000px;
-    height: 750px;
-    background: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) calc(50% - 250px), transparent calc(40% + 100px)), url("./assets/img/welcome.jpg") no-repeat top right;
-    display: none;
-}
-
-.welcome-slider .active {
-    display: block;
-}
-
-.slideNumbers-container {
-    display: flex;
-    justify-content: space-between;
-    width: 76px;
-}
-
-.slideNumber-container {
-    width: 25px;
-    height: 25px;
-    overflow: hidden;
-}
-
-.slideNumber {
-    background-color: black;
-    color: white;
-    border: none;
-    font-size: 22px;
-    font-family: Roboto;
-    font-weight: 400;
-    margin-top: -3px;
-}
-
-.line-between-numbers {
-    height: 20px;
-    border-left: 3px solid white;
-}
-
-.dots {
-    width: 16px;
-    height: 16px;
-    background-color: #FFFFFF;
-}
-
-.dotsBlock {
-    width: 180px;
-    height: 16px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.dotsBlock .active {
-    background-color: #D2B183;
-}
-
-.slider-buttons {
-    width: 80px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.slider-buttons .prev {
-    width: 30px;
-    height: 8px;
-    border: none;
-    background: url('./assets/img/welcome-slider/prev.png');
-    background-repeat: no-repeat;
-}
-
-.slider-buttons .next {
-    width: 30px;
-    height: 8px;
-    border: none;
-    background: url('./assets/img/welcome-slider/next.png');
-    background-repeat: no-repeat;
-}
-
-.slider-buttons .next:hover, .slider-buttons .prev:hover, .dots:hover {
-    cursor: pointer;
-}
-
-.slider-control-panel {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    width: 700px;
-    height: 120px;
-    background-color: black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 75px;
-    padding-right: 75px;
-}
-
-h2 {
-    color: #FFFFFF;
-    font-family: Forum;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 80px;
-    line-height: 90px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-}
-
-h2:hover {
-    color: #9D8665;
-    transition-duration: 0.3s;
+    margin-top: 150px;
 }
 
 h1 {
-    margin-top: 150px;
     color: #FFFFFF;
     font-family: Forum;
     font-style: normal;
@@ -307,15 +186,17 @@ h1 {
     color: #FFFFFF;
 }
 
-/* BURGER MENU */
+/* burger menu */
 
 .burger-menu {
     width: 110px;
+    margin-top: 35px;
     padding-right: 20px;
     position: absolute;
-    left: -200px;
+    left: -170px;
     padding-left: 35px;
     background-color: black;
+    visibility: hidden;
 }
 
 .burger-menu li {
@@ -337,6 +218,133 @@ h1 {
 .burger-menu img {
     width: 12px;
     height: 12px;
+}
+
+/* welcome-slider */
+
+.welcome-slider {
+    position: relative;
+}
+
+.welcome-slider .active {
+    display: block;
+}
+
+.sliderItem {
+    /* background: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) calc(50% - 250px), transparent calc(40% + 100px)), url("./assets/img/welcome.jpg") no-repeat top right; */
+    display: none;
+}
+
+.sliderItem img {
+    max-width: 100%;
+    height: auto;
+}
+
+.welcome-slider .active {
+    display: block;
+}
+
+/* slider-control-panel */
+
+.slider-control-panel {
+    padding: 0px;
+    margin: 0px;
+    position: absolute;
+    bottom: -75px;
+    right: 0px;
+    width: 600px;
+    height: 120px;
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.slideNumbers-container {
+    display: flex;
+    justify-content: space-between;
+    width: 76px;
+}
+
+.slideNumber-container {
+    width: 25px;
+    height: 25px;
+    overflow: hidden;
+}
+
+.slideNumber {
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 22px;
+    font-family: Roboto;
+    font-weight: 400;
+    margin-top: -3px;
+}
+
+.line-between-numbers {
+    height: 20px;
+    border-left: 3px solid white;
+}
+
+.dotsBlock {
+    width: 180px;
+    height: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dots {
+    width: 16px;
+    height: 16px;
+    background-color: #FFFFFF;
+}
+
+.dotsBlock .active {
+    background-color: #D2B183;
+}
+
+.slider-buttons {
+    margin-right: 0px;
+    width: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.slider-buttons .prev {
+    width: 30px;
+    height: 8px;
+    border: none;
+    background: url('./assets/img/welcome-slider/prev.png');
+    background-repeat: no-repeat;
+}
+
+.slider-buttons .next {
+    width: 30px;
+    height: 8px;
+    border: none;
+    background: url('./assets/img/welcome-slider/next.png');
+    background-repeat: no-repeat;
+}
+
+.slider-buttons .next:hover, .slider-buttons .prev:hover, .dots:hover {
+    cursor: pointer;
+}
+
+h2 {
+    color: #FFFFFF;
+    font-family: Forum;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 80px;
+    line-height: 90px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+h2:hover {
+    color: #9D8665;
+    transition-duration: 0.3s;
 }
 
 /* VIRTUAL TOUR SECTION */
@@ -417,28 +425,30 @@ h1 {
 
 /* PICTURE EXPLORE SECTION */
 
-.polzunok {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    border: none;
-    background: transparent;
-    cursor: col-resize;
-    width: 720px;
-    left: 0;
-    margin: 0;
-    outline: none;
-    padding: 0;
-    position: relative;
+/* COMPARE */
+
+.img-comp-img {
     position: absolute;
-    top: 343px;
+    width: auto;
+    height: auto;
+    overflow: hidden;
 }
 
-.polzunok::-moz-range-thumb {
-    height: 700px;
+.img-comp-img img {
+    display: block;
+    vertical-align: middle;
+}
+
+.img-comp-slider {
+    position: absolute;
+    z-index: 9;
+    cursor: ew-resize;
+    /*set the appearance of the slider:*/
     width: 40px;
-    border: none;
-    background: url("./assets/img/explore-slider.png");
-    cursor: pointer;
+    height: 40px;
+    background-color: #2196F3;
+    opacity: 0.7;
+    border-radius: 50%;
 }
 
 .dark-section .border-bottom h2 {
@@ -477,31 +487,18 @@ h1 {
 }
 
 .image-block {
-    width: 50%;
-}
-
-.picture {
-    background-image: url("./assets/img/explore-img1.jpg ");
-    max-width: 720px;
     position: relative;
-}
-
-.filter-block {
-    overflow: hidden;
-}
-
-.picture .line-control {
-    position: absolute;
-    top: 0px;
-    left: 420px;
-}
-
-.picture .line-control:hover {
-    cursor: pointer;
+    width: 50%;
+    min-height: 700px;
 }
 
 .par-container span {
     color: #CAAA7D;
+}
+
+.img-comp-slider {
+    background: url('./assets/img/explore-slider.png');
+    height: 700px;
 }
 
 /* VIDEO SECTION */
@@ -1273,8 +1270,13 @@ video {
 }
 
 @media (max-width: 1024px) {
-    .section {
+    /* .section {
         padding: 60px 0px;
+    } */
+    .welcome-title-block {
+        position: absolute;
+        z-index: 1;
+        margin-top: 50px;
     }
     .burger-menu-icon {
         display: block;
@@ -1288,7 +1290,7 @@ video {
         margin-right: 20px;
     }
     .welcome-container {
-        padding-top: 50px;
+        /* padding-top: 50px; */
         height: 585px;
         min-height: 585px;
     }
@@ -1296,6 +1298,7 @@ video {
         height: 130px;
         min-height: 130px;
     }
+    /* WELCOME SECTION */
     h1 {
         font-size: 50px;
     }
@@ -1314,10 +1317,13 @@ video {
         font-size: 50px;
         line-height: 75px;
     }
+    .slider-control-panel {
+        position: static;
+    }
+    /* VIRTUAL TOUR */
     .tours-container {
         margin-top: 60px;
     }
-    /* VIRTUAL TOUR */
     .tours-container {
         margin-top: 60px;
         row-gap: 60px;
@@ -1348,28 +1354,23 @@ video {
     }
     .text-block {
         width: 100%;
-        border: blanchedalmond 1px solid;
+        
     }
     .image-block {
         margin-top: 60px;
-        width: 100%;
-        border: blanchedalmond 1px solid;
-    }
-    .picture {
-        background-image: url("./assets/img/explore-img1.jpg ");
-        max-width: 720px;
-        border: blanchedalmond 1px solid;
-        margin: 0 auto;
+        width: 720px;
+        
+
     }
     .par-container {
         margin-top: 60px;
         max-width: 100%;
-        border: blanchedalmond 1px solid;
+        
         margin-bottom: 60px;
     }
     /* VIDEO SECTION */
     .video-block {
-        border: rgb(207, 127, 5) 1px solid;
+        
     }
     .video-colums {
         display: inline;
