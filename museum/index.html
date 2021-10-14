@@ -124,119 +124,196 @@
                         </script>
                     </nav>
                 </div>
-                <div class="welcome-slider-container">
-                    <div class="welcome-slider">
-                        <div class="sliderItem active">
-                            <img src="./assets/img/welcome-slider/1.jpg" alt="">
-                        </div>
-                        <div class="sliderItem">
-                            <img src="./assets/img/welcome-slider/2.jpg" alt="">
-                        </div>
-                        <div class="sliderItem">
-                            <img src="./assets/img/welcome-slider/3.jpg" alt="">
-                        </div>
-                        <div class="sliderItem">
-                            <img src="./assets/img/welcome-slider/4.jpg" alt="">
-                        </div>
-                        <div class="sliderItem">
-                            <img src="./assets/img/welcome-slider/5.jpg" alt="">
-                        </div>
-                        <div class="slider-control-panel">
-                            <div class="slideNumbers-container">
-                                <div class="slideNumber-container">
-                                    <input class="slideNumber" type="number" readonly value="01" id="currentNumber">
-                                </div>
-                                <div class="line-between-numbers"></div>
-                                <div class="slideNumber-container">
-                                    <input class="slideNumber" type="number" readonly value="05">
-                                </div>
-                            </div>
-                            <div class="dotsBlock">
-                                <div class="dots active"></div>
-                                <div class="dots "></div>
-                                <div class="dots"></div>
-                                <div class="dots"></div>
-                                <div class="dots"></div>
-                            </div>
-                            <div class="slider-buttons">
-                                <button class="prev" id="btn-prev"></button>
-                                <button class="next" id="btn-next"></button>
-                            </div>
-                            <script>
-                                const slides = document.querySelectorAll('.sliderItem')
-                                const next = document.getElementById('btn-next')
-                                const prev = document.getElementById('btn-prev')
-                                const dots = document.querySelectorAll('.dots')
-                                let index = 0
-                                document.getElementById('currentNumber').value = '0' + (index + 1)
-
-                                const activeSlide = (n) => {
-                                    for (slider of slides) {
-                                        slider.classList.remove('active')
-                                    }
-                                    slides[n].classList.add('active')
-                                }
-                                const activeDot = (n) => {
-                                    for (dot of dots) {
-                                        dot.classList.remove('active')
-                                    }
-                                    dots[n].classList.add('active')
-                                }
-                                const nextSlide = () => {
-                                    if (index == slides.length - 1) {
-                                        index = 0
-                                        activeSlide(index)
-                                        activeDot(index)
-                                        document.getElementById('currentNumber').value = '0' + (index + 1)
-                                    } else {
-                                        index++
-                                        activeSlide(index)
-                                        activeDot(index)
-                                        document.getElementById('currentNumber').value = '0' + (index + 1)
-                                    }
-                                }
-                                const prevSlide = () => {
-                                    if (index == 0) {
-                                        index = slides.length - 1
-                                        activeSlide(index)
-                                        activeDot(index)
-                                        document.getElementById('currentNumber').value = '0' + (index + 1)
-                                    } else {
-                                        index--
-                                        activeSlide(index)
-                                        activeDot(index)
-                                        document.getElementById('currentNumber').value = '0' + (index + 1)
-                                    }
-                                }
-                                dots.forEach((element, indexDot) => {
-                                    console.log(indexDot)
-                                    element.addEventListener('click', () => {
-                                        index = indexDot;
-                                        activeSlide(index)
-                                        activeDot(index)
-                                        document.getElementById('currentNumber').value = '0' + (index + 1)
-                                    })
-                                });
-
-                                next.addEventListener('click', nextSlide)
-                                prev.addEventListener('click', prevSlide)
-                            </script> -->
+                <div class="slider" id="slider">
+                    <div class="wrapper">
+                        <div id="slides" class="slides">
+                            <span class="slide active"><img src="./assets/img/welcome-slider/1.jpg" alt=""></span>
+                            <span class="slide"><img src="./assets/img/welcome-slider/2.jpg" alt=""></span>
+                            <span class="slide"><img src="./assets/img/welcome-slider/3.jpg" alt=""></span>
+                            <span class="slide"><img src="./assets/img/welcome-slider/4.jpg" alt=""></span>
+                            <span class="slide"><img src="./assets/img/welcome-slider/5.jpg" alt=""></span>
                         </div>
                     </div>
 
+                    <div class="slider-control-panel">
+                        <div class="slideNumbers-container">
+                            <div class="slideNumber-container">
+                                <input class="slideNumber" type="number" readonly value="01" id="currentNumber">
+                            </div>
+                            <div class="line-between-numbers"></div>
+                            <div class="slideNumber-container">
+                                <input class="slideNumber" type="number" readonly value="05">
+                            </div>
+                        </div>
+                        <div class="dotsBlock">
+                            <div class="dots active"></div>
+                            <div class="dots"></div>
+                            <div class="dots"></div>
+                            <div class="dots"></div>
+                            <div class="dots"></div>
+                        </div>
+                        <div class="slider-buttons">
+                            <button class="prev" id="prev"></button>
+                            <button class="next" id="next"></button>
+                        </div>
+                    </div>
+                    <script>
+                        let slider = document.getElementById('slider')
+                        let sliderItems = document.getElementById('slides')
+                        let prev = document.getElementById('prev')
+                        let next = document.getElementById('next')
+                        const dots = document.querySelectorAll('.dots')
+
+
+                        function slide(wrapper, items, prev, next) {
+                            var posX1 = 0,
+                                posX2 = 0,
+                                posInitial,
+                                posFinal,
+                                threshold = 100,
+                                slides = items.getElementsByClassName('slide'),
+                                slidesLength = slides.length,
+                                slideSize = items.getElementsByClassName('slide')[0].offsetWidth,
+                                firstSlide = slides[0],
+                                lastSlide = slides[slidesLength - 1],
+                                cloneFirst = firstSlide.cloneNode(true),
+                                cloneLast = lastSlide.cloneNode(true),
+                                index = 0,
+                                allowShift = true;
+                            document.getElementById('currentNumber').value = '0' + 1
+
+                            // Clone first and last slide
+                            items.appendChild(cloneFirst);
+                            items.insertBefore(cloneLast, firstSlide);
+                            wrapper.classList.add('loaded');
+
+                            // Mouse events
+                            items.onmousedown = dragStart;
+
+                            // Touch events
+                            items.addEventListener('touchstart', dragStart);
+                            items.addEventListener('touchend', dragEnd);
+                            items.addEventListener('touchmove', dragAction);
+
+                            // Click events
+                            prev.addEventListener('click', function () { shiftSlide(-1) });
+                            next.addEventListener('click', function () { shiftSlide(1) });
+
+                            // Transition events
+                            items.addEventListener('transitionend', checkIndex);
+
+                            function dragStart(e) {
+                                e = e || window.event;
+                                e.preventDefault();
+                                posInitial = items.offsetLeft;
+
+                                if (e.type == 'touchstart') {
+                                    posX1 = e.touches[0].clientX;
+                                } else {
+                                    posX1 = e.clientX;
+                                    document.onmouseup = dragEnd;
+                                    document.onmousemove = dragAction;
+                                }
+                            }
+
+                            function dragAction(e) {
+                                e = e || window.event;
+
+                                if (e.type == 'touchmove') {
+                                    posX2 = posX1 - e.touches[0].clientX;
+                                    posX1 = e.touches[0].clientX;
+                                } else {
+                                    posX2 = posX1 - e.clientX;
+                                    posX1 = e.clientX;
+                                }
+                                items.style.left = (items.offsetLeft - posX2) + "px";
+                            }
+
+                            function dragEnd(e) {
+                                posFinal = items.offsetLeft;
+                                if (posFinal - posInitial < -threshold) {
+                                    shiftSlide(1, 'drag');
+                                } else if (posFinal - posInitial > threshold) {
+                                    shiftSlide(-1, 'drag');
+                                } else {
+                                    items.style.left = (posInitial) + "px";
+                                }
+
+                                document.onmouseup = null;
+                                document.onmousemove = null;
+                            }
+
+                            function shiftSlide(dir, action) {
+                                items.classList.add('shifting');
+                                if (allowShift) {
+                                    if (!action) { posInitial = items.offsetLeft; }
+                                    if (dir == 1) {
+                                        items.style.left = (posInitial - slideSize) + "px";
+                                        index++;
+                                        activeDot(index)
+                                    } else if (dir == -1) {
+                                        items.style.left = (posInitial + slideSize) + "px";
+                                        index--;
+                                        activeDot(index)
+                                    }
+                                };
+                                allowShift = false;
+                            }
+
+                            function checkIndex() {
+                                items.classList.remove('shifting');
+
+                                if (index == -1) {
+                                    items.style.left = -(slidesLength * slideSize) + "px";
+                                    index = slidesLength - 1;
+                                }
+
+                                if (index == slidesLength) {
+                                    items.style.left = -(1 * slideSize) + "px";
+                                    index = 0;
+                                }
+
+                                allowShift = true;
+                            }
+
+                            dots.forEach((element, indexDot) => {
+                                element.addEventListener('click', () => {
+                                    items.classList.add('shifting');
+                                    items.style.left = ((indexDot + 1) * -1000) + "px";
+                                    index = indexDot
+                                    activeDot(indexDot)
+                                })
+                            });
+
+                            const activeDot = (n) => {
+                                for (dot of dots) {
+                                    dot.classList.remove('active')
+                                }
+                                if (n == 5) {
+                                    document.getElementById('currentNumber').value = '0' + 1
+                                    dots[0].classList.add('active')
+                                } else if (n == -1) {
+                                    document.getElementById('currentNumber').value = '0' + 5
+                                    dots[4].classList.add('active')
+                                } else {
+                                    document.getElementById('currentNumber').value = '0' + (n + 1)
+                                    dots[n].classList.add('active')
+                                }
+                            }
+
+
+
+                        }
+
+
+
+
+
+
+                        slide(slider, sliderItems, prev, next)
+                    </script>
                 </div>
             </div>
-            <!-- <div class="container welcome-container">
-                <div class="section-title">
-                    
-                </div>
-                <div class="slider-column">
-                    
-
-                    
-                </div>
-
-            </div> -->
 
         </section>
 
@@ -396,7 +473,7 @@
 
                         initComparisons();
                     </script>
-            
+
                 </div>
             </div>
             <script>
@@ -432,45 +509,200 @@
                     <input type="range" value="40" min="0" max="100" step="1" class="volume-progress">
                     <img src="./assets/img/frameIcon.png" alt="">
                 </div>
-                <div class="video-slider">
-                    <div class="video-slider-item">
-                        <img class="video-slider-item-img" src="./assets/img/slider-item1.jpg" alt="">
-                        <div class="video-slider-itemButton">
-                            <img src="./assets/img/youtubePlayIcon.png" alt="image">
+                <div class="video-slider" id="video-slider">
+                    <div class="video-wrapper">
+                        <div id="video-slides" class="video-slides">
+                            <span class="video-slide video-active"><img src="./assets/img/slider-item1.jpg"
+                                    alt=""></span>
+                            <span class="video-slide"><img src="./assets/img/slider-item2.jpg" alt=""></span>
+                            <span class="video-slide"><img src="./assets/img/slider-item3.jpg" alt=""></span>
+                            <span class="video-slide"><img src="./assets/img/slider-item3.jpg" alt=""></span>
+                            <span class="video-slide"><img src="./assets/img/slider-item3.jpg" alt=""></span>
                         </div>
                     </div>
-                    <div class="video-slider-item">
-                        <img class="video-slider-item-img" src="./assets/img/slider-item2.jpg" alt="">
-                        <div class="video-slider-itemButton">
-                            <img src="./assets/img/youtubePlayIcon.png" alt="image">
-                        </div>
-                    </div>
-                    <div class="video-slider-item">
-                        <img class="video-slider-item-img" src="./assets/img/slider-item3.jpg" alt="">
-                        <div class="video-slider-itemButton">
-                            <img src="./assets/img/youtubePlayIcon.png" alt="image">
-                        </div>
-                    </div>
+
+
+
+                    <script>
+                        let slider = document.getElementById('video-slider')
+                        let sliderItems = document.getElementById('video-slides')
+                        let prev = document.getElementById('video-prev')
+                        let next = document.getElementById('video-next')
+                        const dots = document.querySelectorAll('.video-dots')
+
+
+                        function slide(wrapper, items, prev, next) {
+                            var posX1 = 0,
+                                posX2 = 0,
+                                posInitial,
+                                posFinal,
+                                threshold = 100,
+                                slides = items.getElementsByClassName('video-slide'),
+                                slidesLength = slides.length,
+                                slideSize = items.getElementsByClassName('video-slide')[0].offsetWidth,
+                                firstSlide = slides[0],
+                                lastSlide = slides[slidesLength - 1],
+                                cloneFirst = firstSlide.cloneNode(true),
+                                cloneLast = lastSlide.cloneNode(true),
+                                index = 0,
+                                allowShift = true;
+                           
+
+                            // Clone first and last slide
+                            items.appendChild(cloneFirst);
+                            items.insertBefore(cloneLast, firstSlide);
+                            wrapper.classList.add('loaded');
+
+                            // Mouse events
+                            items.onmousedown = dragStart;
+
+                            // Touch events
+                            items.addEventListener('touchstart', dragStart);
+                            items.addEventListener('touchend', dragEnd);
+                            items.addEventListener('touchmove', dragAction);
+
+                            // Click events
+                            prev.addEventListener('click', function () { shiftSlide(-1) });
+                            next.addEventListener('click', function () { shiftSlide(1) });
+
+                            // Transition events
+                            items.addEventListener('transitionend', checkIndex);
+
+                            function dragStart(e) {
+                                e = e || window.event;
+                                e.preventDefault();
+                                posInitial = items.offsetLeft;
+
+                                if (e.type == 'touchstart') {
+                                    posX1 = e.touches[0].clientX;
+                                } else {
+                                    posX1 = e.clientX;
+                                    document.onmouseup = dragEnd;
+                                    document.onmousemove = dragAction;
+                                }
+                            }
+
+                            function dragAction(e) {
+                                e = e || window.event;
+
+                                if (e.type == 'touchmove') {
+                                    posX2 = posX1 - e.touches[0].clientX;
+                                    posX1 = e.touches[0].clientX;
+                                } else {
+                                    posX2 = posX1 - e.clientX;
+                                    posX1 = e.clientX;
+                                }
+                                items.style.left = (items.offsetLeft - posX2) + "px";
+                            }
+
+                            function dragEnd(e) {
+                                posFinal = items.offsetLeft;
+                                if (posFinal - posInitial < -threshold) {
+                                    shiftSlide(1, 'drag');
+                                } else if (posFinal - posInitial > threshold) {
+                                    shiftSlide(-1, 'drag');
+                                } else {
+                                    items.style.left = (posInitial) + "px";
+                                }
+
+                                document.onmouseup = null;
+                                document.onmousemove = null;
+                            }
+
+                            function shiftSlide(dir, action) {
+                                items.classList.add('video-shifting');
+                                if (allowShift) {
+                                    if (!action) { posInitial = items.offsetLeft; }
+                                    if (dir == 1) {
+                                        items.style.left = (posInitial - slideSize) + "px";
+                                        index++;
+                                        activeDot(index)
+                                    } else if (dir == -1) {
+                                        items.style.left = (posInitial + slideSize) + "px";
+                                        index--;
+                                        activeDot(index)
+                                    }
+                                };
+                                allowShift = false;
+                            }
+
+                            function checkIndex() {
+                                items.classList.remove('video-shifting');
+
+                                if (index == -1) {
+                                    items.style.left = -(slidesLength * slideSize) + "px";
+                                    index = slidesLength - 1;
+                                }
+
+                                if (index == slidesLength) {
+                                    items.style.left = -(1 * slideSize) + "px";
+                                    index = 0;
+                                }
+
+                                allowShift = true;
+                            }
+
+                            dots.forEach((element, indexDot) => {
+                                element.addEventListener('click', () => {
+                                    items.classList.add('video-shifting');
+                                    items.style.left = ((indexDot + 1) * -1000) + "px";
+                                    index = indexDot
+                                    activeDot(indexDot)
+                                })
+                            });
+
+                            const activeDot = (n) => {
+                                for (dot of dots) {
+                                    dot.classList.remove('video-active')
+                                }
+                                if (n == 5) {
+                                   
+                                    dots[0].classList.add('video-active')
+                                } else if (n == -1) {
+                                    
+                                    dots[4].classList.add('video-active')
+                                } else {
+                                    
+                                    dots[n].classList.add('video-active')
+                                }
+                            }
+                        }
+
+                        slide(slider, sliderItems, prev, next)
+                    </script>
+
                 </div>
-                <div class="slider-controls">
-                    <a href=""><img src="./assets/img/sliderButtonLeft.png" alt=""></a>
-                    <label for="id1"><img src="./assets/img/radio-checked.png" alt="">
+                <div class="video-dotsBlock">
+                    <div class="video-dots active"></div>
+                    <div class="video-dots"></div>
+                    <div class="video-dots"></div>
+                    <div class="video-dots"></div>
+                    <div class="video-dots"></div>
+                </div>
+                <div class="video-slider-buttons">
+                    <button class="video-prev" id="video-prev">prev</button>
+                    <button class="video-next" id="video-next">next</button>
+                </div>
+
+                <!-- <div class="slider-controls">
+                    <a id="video-prev" href=""><img src="./assets/img/sliderButtonLeft.png" alt=""></a>
+                    <label class="video-dots" for="id1"><img src="./assets/img/radio-checked.png" alt="">
                         <input value="1" type="radio" id="id1" checked>
                     </label>
-                    <label for="id2"><img src="./assets/img/radio.png" alt="">
+                    <label class="video-dots" for="id2"><img src="./assets/img/radio.png" alt="">
                         <input value="2" type="radio" id="id2">
                     </label>
-                    <label for="id3"><img src="./assets/img/radio.png" alt="">
+                    <label class="video-dots" for="id3"><img src="./assets/img/radio.png" alt="">
                         <input value="3" type="radio" id="id3">
                     </label>
-                    <label for="id4"><img src="./assets/img/radio.png" alt="">
+                    <label class="video-dots" for="id4"><img src="./assets/img/radio.png" alt="">
                         <input value="4" type="radio" id="id4">
                     </label>
-                    <label for="id5"><img src="./assets/img/radio.png" alt="">
+                    <label class="video-dots" for="id5"><img src="./assets/img/radio.png" alt="">
                         <input value="5" type="radio" id="id5">
                     </label>
-                    <a href=""><img src="./assets/img/sliderButtonRight.png" alt=""></a>
-                </div>
+                    <a id="video-next" href=""><img src="./assets/img/sliderButtonRight.png" alt=""></a>
+                </div> -->
             </div>
         </section>
 
